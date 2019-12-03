@@ -1,14 +1,19 @@
 <template lang="pug">
     section#landing
-        | Landing Page
+        <Banner />
 </template>
 <script>
+import Banner from '../components/landing_page/Banner.vue';
+
 export default {
     name: 'LandingPage',
+    components: {
+        Banner
+    }
 }
 </script>
 <style lang="scss">
     #landing {
-        background: red;
+        height: auto;
     }
 </style>
