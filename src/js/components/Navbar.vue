@@ -188,6 +188,7 @@ export default {
                         color: #fff;
                         text-transform: uppercase;
                         font-size: 2em;
+                        text-shadow: 0 0 2px #000;
                     }
 
                     &:hover {
@@ -202,4 +203,63 @@ export default {
             }
         }
     }
+
+    @media (min-width: 768px) {
+        #navbar {
+            height: 60px;
+
+            i {
+                display: none;
+            }
+
+            .navbar-wrapper {
+                display: flex;
+                justify-content: flex-end;
+                height: 60px;
+                transform: translateY(0);
+                opacity: 1;
+                animation: none;
+                background: none;
+
+                ul {
+                    flex-flow: row;
+                    justify-content: flex-end;
+                    font-size: .6em;
+                    width: 80%;
+
+                    .link {
+                        text-align: center;
+                        width: auto;
+                        margin: 0 10px;
+
+                        &:hover {
+                            background: none;
+                        }
+                    }
+
+                    .link:last-child {
+                        margin-right: 50px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (min-width: 1024px) {
+        #navbar {
+
+            .navbar-wrapper {
+                
+                ul {
+                    width: 90%;
+                    font-size: .9em;
+
+                    .list {
+                        margin: 0 30px;
+                    }
+                }
+            }
+        }
+    }
+
 </style>

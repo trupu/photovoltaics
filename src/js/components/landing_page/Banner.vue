@@ -5,10 +5,12 @@
         div.banner-subtitle
             | Oblicz koszt montażu paneli słonecznych na podstawie płaconych rachunków za prąd!
         div.banner-buttons
-            button.button-medium
-                | Kalkulator
-            button.button-medium_reverse
-                | Kontakt
+            router-link(to='/kalkulator')
+                button.button-medium
+                    | Kalkulator
+            router-link(to='/kontakt')
+                button.button-medium_reverse
+                    | Kontakt
 </template>
 <script>
 import Buttons from '../Buttons.vue';
@@ -67,6 +69,25 @@ export default {
 
             button {
                 margin: 10px 0;
+            }
+        }
+    }
+
+
+    @media (min-width: 768px) {
+        #banner {
+            background-size: 100%;
+
+            .banner-subtitle {
+                width: 50%;
+            }
+
+            .banner-buttons {
+                flex-flow: row;
+
+                button {
+                    margin: 0 20px;
+                }
             }
         }
     }

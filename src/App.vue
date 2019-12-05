@@ -23,4 +23,10 @@ export default {
         height: 100vh;
         background-color: orangered;
     }
+
+    .color-changer {
+        color: $darkCyan;
+        font-size: 1.1em;
+    }
+
 </style>

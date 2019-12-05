@@ -19,6 +19,10 @@ export default {
 
         transition: all .3s ease-in-out;
 
+        a {
+            text-decoration: none;
+        }
+
         &:hover {
             cursor: pointer;
         }
@@ -42,16 +46,24 @@ export default {
         background-color: $darkCyan;
         color: #fff;
 
+        a {
+            color: #fff;
+        }
+
         &:hover {
-            border: 1px solid #fff;
+            border: 2px solid #fff;
             background: none;
         }
     }
 
     .button-medium_reverse, .button-small_reverse {
-        border: 1px solid #fff;
+        border: 2px solid #fff;
         color: #fff;
         background: none;
+
+        a {
+            color: #fff;
+        }
 
         &:hover {
             border: none;
