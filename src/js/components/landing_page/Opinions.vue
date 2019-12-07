@@ -139,6 +139,8 @@ export default {
                 top: 0;
                 left: 0;
 
+                transition: all .3s ease-in-out;
+
                 width: 100%;
                 color: #000;
 
@@ -170,6 +172,14 @@ export default {
                         animation: showOpinionContent .8s ease-in-out both;
                     }
                 }
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        #opinions {
+            .opinions-slider {
+                width: 60%;
             }
         }
     }
