@@ -29,8 +29,6 @@ export default {
     },
     methods: {
         showRandomProject() {
-            const projects = document.querySelectorAll('.single-project');
-
             this.currentIndex = Math.floor(Math.random() * this.projectData.length);
         
             this.createProjectSlide(this.currentIndex);
@@ -250,7 +248,7 @@ export default {
             color: #fff;
 
             p {
-                font-size: 2em;
+                font-size: 1.5em;
                 margin: 10px 0;
             }
 
@@ -295,6 +293,7 @@ export default {
                 flex-flow: row;
                 
                 p {
+                    font-size: 2em;
                     margin: 20px 10px;
                 }
 
