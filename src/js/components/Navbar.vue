@@ -1,7 +1,10 @@
 <template lang="pug">
     nav#navbar
-        i(class='fas fa-bars menu-changer' v-if='!menuShowed' @click='toggleMenu()')
-        i(class='fas fa-times menu-changer' v-if='menuShowed' @click='toggleMenu()')
+        div.switcher(class='menu-changer' @click='toggleMenu()')
+            span(v-if='!menuShowed') 
+                | menu
+            i(class='fas fa-bars' v-if='!menuShowed')
+            i(class='fas fa-times' v-if='menuShowed')
         div.navbar-wrapper
             ul
                 li.link
@@ -26,7 +29,8 @@ export default {
     data() {
         return {
             menuShowed: false,
-            menuTimeout: ''
+            menuTimeout: '',
+            navTimeout: ''
         }
     },
     methods: {
@@ -57,12 +61,31 @@ export default {
                         el.style.animation = `showLink .3s ${0.3+0.05*index}s both ease-in-out`;
                     });
                 } else {
+                    const nav = document.querySelector('#navbar');
+                    nav.style.height = '60px';
                     links.forEach((el,index) => {
                         el.style.animation = '';
                     });
                 }
             }, 10);
+        },
+        // switching nav`s background onscroll
+        controlScrollBehaviour() {
+            const nav = document.querySelector('#navbar');
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = 'rgba(0,0,0,.4)';
+            } else {
+                nav.style.background = 'none';
+            }
         }
+    },
+    mounted () {
+        window.addEventListener('scroll', () => {
+            clearTimeout(this.navTimeout);
+            this.navTimeout = setTimeout(() => {
+                this.controlScrollBehaviour();
+            }, 50);
+        });
     }
 }
 </script>
@@ -131,24 +154,45 @@ export default {
         height: auto;
 
         position: fixed;
+        z-index: 100;
         top: 0;
         left: 0;
         min-height: 60px;
+        transition: background .3s ease-in-out;
         
-        i {
-            font-size: 2.5em;
-            color: $lightCyan;
-            position: absolute;
-            top: 15px;
-            right: 8%;
-            opacity: 1;
-            z-index: 100;
+        .switcher {
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            justify-content: center;
 
-            transition: all .3s ease-in-out;
+            text-transform: uppercase;
+
+            position: absolute;
+            top: 10px;
+            right: 5%;
+            color: $lightCyan;
+            z-index: 150;
+
 
             &:hover {
                 color: $lightCyan;
                 cursor: pointer;
+            }
+
+            span {
+                font-size: 2em;
+            }
+
+            i {
+                opacity: 1;
+                z-index: 100;
+
+                font-size: 2.5em;
+
+                margin: 0 10px;
+
+                transition: all .3s ease-in-out;
             }
         }
 
@@ -189,6 +233,8 @@ export default {
                         text-transform: uppercase;
                         font-size: 2em;
                         text-shadow: 0 0 2px #000;
+
+                        transition: all .3s ease-in-out;
                     }
 
                     &:hover {
@@ -208,7 +254,7 @@ export default {
         #navbar {
             height: 60px;
 
-            i {
+            .switcher {
                 display: none;
             }
 

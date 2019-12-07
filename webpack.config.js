@@ -2,7 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const config = {};
 
@@ -83,7 +84,10 @@ config.plugins = [
     new ExtractTextPlugin({
         filename: '[name].css'
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new CopyPlugin([
+        { from: './public/img', to: './img' }
+      ])
 ]
 
 module.exports = config;
