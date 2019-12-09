@@ -42,7 +42,7 @@ export default {
     }
 
     .button-medium, .button-small {
-        border: none;
+        border: 2px solid $darkCyan;
         background-color: $darkCyan;
         color: #fff;
 
@@ -66,7 +66,7 @@ export default {
         }
 
         &:hover {
-            border: none;
+            border: 2px solid $darkCyan;
             background-color: $darkCyan;
         }
     }

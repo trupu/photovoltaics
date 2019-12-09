@@ -135,6 +135,8 @@ export default {
 
             align-items: center;
             justify-content: center;
+            background-color: $darkCyan;
+            padding-bottom: 30px;
 
             .projects_title {
                 text-transform: uppercase;
@@ -145,13 +147,16 @@ export default {
                 margin: 30px 0;
 
                 span {
+                    font-size: 1.1em;
+                    color: $lightCyan;
                     margin: 0 5px;
                 }
             }
 
             .projects_description {
                 width: 90%;
-
+                font-size: 1.2em;
+                color: #000;
                 text-align: center;
             }
         }
@@ -176,7 +181,6 @@ export default {
                 width: 100%;
                 height: auto;
 
-                margin: 20px 0;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -199,6 +203,7 @@ export default {
                     align-items: center;
                     justify-content: center;
                     flex-flow: column;
+                    z-index: 80;
 
                     position: absolute;
                     top: 0;
@@ -209,8 +214,8 @@ export default {
 
                     width: 100%;
                     height: 300px;
-                    background-color: $darkCyan;
-                    color: #fff;
+                    background-color: #fff;
+                    color: $darkCyan;
 
                     transition: all .5s ease-in-out;
 
@@ -269,7 +274,7 @@ export default {
             .projects_slider {
                 .single-project {
                     flex-flow: row;
-                    background-color: $darkCyan;
+                    background-color: #fff;
 
                     .project-image {
                         width: 50%;
@@ -283,8 +288,6 @@ export default {
                         position: relative;
                         opacity: 1;
                         transform: translateX(0);
-                        background: none;
-                        color: #fff;
                     }
                 }
             }

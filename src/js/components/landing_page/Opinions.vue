@@ -100,12 +100,13 @@ export default {
         justify-content: center;
 
         width: 100%;
-        padding: 100px 10px;
+        padding: 50px 10px;
 
         .opinion-title {
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 50px;
 
             .title {
                 width: 100%;

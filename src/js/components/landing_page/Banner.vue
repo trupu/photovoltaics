@@ -76,7 +76,7 @@ export default {
 
     @media (min-width: 768px) {
         #banner {
-            background-size: 100%;
+            background-size: cover;
 
             .banner-subtitle {
                 width: 50%;

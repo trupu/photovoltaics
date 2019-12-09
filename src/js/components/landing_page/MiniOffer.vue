@@ -6,34 +6,42 @@
             p.wrapper__content
                 | Zdajemy sobie sprawę, że Odnawialne Źródła Energii są przyszłością świata. Oferujemy solidne rozwiązania oparte o najnowsze technologie, a to wszystko pod okiem najlepszych specjalistów. Postaw na przyszłość!
         div.mini-offer_icons
-            div.icons_single
-                i(class='fas fa-solar-panel')
+            div.icons_single(v-for='keys in offers')
+                i(:class='keys.icon')
                 h4.mini-title
-                    | Panele
+                    | {{ keys.title }}
                     span.color-changer
-                        | Fotowoltaiczne
+                        | {{ keys.subtitle }}
                 p.content
-                    | Energia słoneczna przetwarzana jest bezpośrednio w energię elektryczną, dzięki czemu nie potrzebujemy generatorów!
-            div.icons_single
-                i(class='fab fa-pagelines')
-                h4.mini-title
-                    | Czysta
-                    span.color-changer
-                        | Planeta
-                p.content
-                    | Stosując Odnawialne Źródła Energii dbamy o przyszłość swoją i naszych dzieci!
-            div.icons_single
-                i(class='far fa-lightbulb')
-                h4.mini-title
-                    | Tania
-                    span.color-changer
-                        | Energia
-                p.content
-                    | Instalacja zwraca się bardzo szybko. Później panele generują już tylko zysk!
+                    | {{ keys.content }}
 </template>
 <script>
 export default {
     name: 'MiniOffer',
+    data() {
+        return {
+            offers: [
+                {
+                    title: 'Panele',
+                    subtitle: 'Fotowoltaiczne',
+                    icon: 'fas fa-solar-panel',
+                    content: 'Energia słoneczna przetwarzana jest bezpośrednio w energię elektryczną, dzięki czemu nie potrzebujemy generatorów!'
+                },
+                {
+                    title: 'Czysta',
+                    subtitle: 'Planeta',
+                    icon: 'fab fa-pagelines',
+                    content: 'Stosując Odnawialne Źródła Energii dbamy o przyszłość swoją i naszych dzieci!'
+                },
+                {
+                    title: 'Tania',
+                    subtitle: 'Energia',
+                    icon: 'far fa-lightbulb',
+                    content: 'Instalacja zwraca się bardzo szybko. Później panele generują już tylko zysk!'
+                    }
+            ]
+        }
+    }
 
 }
 </script>
@@ -140,6 +148,7 @@ export default {
         #mini-offer {
             .mini-offer_icons {
                 .icons_single {
+                    margin: 0 20px;
                     width: 300px;
                 }
             }
