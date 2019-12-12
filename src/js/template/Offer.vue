@@ -3,18 +3,21 @@
         <Services/>
         <Benefits/>
         <PVDescription/>
+        <ContactMini />
 </template>
 <script>
 import Services from '../components/offer/Services.vue';
 import Benefits from '../components/offer/Benefits.vue';
 import PVDescription from '../components/offer/PVDescription.vue';
+import ContactMini from '../components/Contact-mini.vue';
 
 export default {
     name: 'Offer',
     components: {
         Services,
         Benefits,
-        PVDescription
+        PVDescription,
+        ContactMini
     },
     data() {
         return {
@@ -28,6 +31,9 @@ export default {
     },
     mounted() {
         this.$parent.changeTitle(this.header.title, this.header.subtitle, this.header.description, this.header.path);
+    },
+    destroyed() {
+        this.$parent.header.renderPath = false;
     }
 }
 </script>
@@ -40,4 +46,11 @@ export default {
 
         padding: 100px 5px 30px 5px;
     }
+
+    @media (min-width: 768px) {
+        #offer {
+            width: 80%;
+        }
+    }
+
 </style>
