@@ -2,7 +2,7 @@
     section#services
         div.services-wrapper
             div.services-img
-                img(src='../../../img/landingpage/realizacja.jpg')
+                img(src='../../../img/landingpage/ppanel.png')
             div.services-content
                 h3.title
                     | Czym się zajmujemy?
@@ -33,6 +33,7 @@ export default {
                 img {
                     object-fit: cover;
                     height: 300px;
+                    width: 100%;
                 }
             }
 
@@ -63,6 +64,10 @@ export default {
 
                 .services-content {
                     height: 100%;
+                }
+
+                .services-img {
+                    margin: 0 20px;
                 }
             }
         }

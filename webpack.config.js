@@ -63,6 +63,7 @@ config.module = {
         },
         {
             test: /\.(gif|png|jpe?g|svg)$/i,
+            /*
             use: [
                 'file-loader',
                 {
@@ -72,6 +73,16 @@ config.module = {
                 },
                 },
             ],
+            */
+           use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: false,
+                esModule: false,
+              },
+            },
+          ],
         }
     ]
 }
