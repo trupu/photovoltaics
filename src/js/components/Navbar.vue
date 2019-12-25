@@ -7,19 +7,19 @@
             i(class='fas fa-times' v-if='menuShowed')
         div.navbar-wrapper
             ul
-                li.link
+                li.link(@click='toggleMenu()')
                     router-link(to="/") 
                         | Start
-                li.link
+                li.link(@click='toggleMenu()')
                     router-link(to="/oferta")
                         | Oferta
-                li.link
+                li.link(@click='toggleMenu()')
                     router-link(to="/onas")
                         | O Firmie
-                li.link
+                li.link(@click='toggleMenu()')
                     router-link(to="/kalkulator")
                         | Kalkulator
-                li.link
+                li.link(@click='toggleMenu()')
                     router-link(to="/kontakt")
                         | Kontakt
 </template>
@@ -35,10 +35,13 @@ export default {
     },
     methods: {
         toggleMenu() {
+            
+            if (window.innerWidth > 768) return;
+
             clearInterval(this.menuTimeout);
-            
+
             // toggle buttons
-            
+
             const button = document.querySelector('.menu-changer');
             
             button.style.animation = 'disappear .3s forwards ease-in-out';
@@ -233,6 +236,12 @@ export default {
                         text-transform: uppercase;
                         font-size: 2em;
                         text-shadow: 0 0 2px #000;
+
+                        display: flex;
+                        width: 100%;
+                        height: 100%;
+                        align-items: center;
+                        justify-content: center;
 
                         transition: all .3s ease-in-out;
                     }
