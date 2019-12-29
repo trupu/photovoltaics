@@ -19,9 +19,12 @@ export default {
         }
     },
     methods: {
+        // buttons router (router-link)
         routerLinkMethod(url) {
             this.$router.push(url);
         },
+
+        // creating Banner`s DOM Structure
         createBannerInstance(parentElement, content) {
             const bg = document.createElement('div');
             bg.classList.add('banner-background');
@@ -63,6 +66,7 @@ export default {
 
             wrapper.appendChild(bb);
         },
+        // slider
         bannerSetTransition(time) {
             this.currentIndex = Math.floor(Math.random()*this.bannerArray.length);
             const current = document.querySelector('#banner');
@@ -73,6 +77,7 @@ export default {
                 this.bannerTransition(current, time);
             }, time);
         },
+        //slider
         bannerTransition(current, time) {
             this.createBannerInstance(current, this.bannerArray[this.currentIndex]);
             (this.bannerArray[this.currentIndex+1]) ? this.currentIndex++ : this.currentIndex = 0;
