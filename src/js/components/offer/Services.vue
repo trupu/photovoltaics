@@ -2,7 +2,7 @@
     section#services
         div.services-wrapper
             div.services-img
-                img(src='../../../img/landingpage/ppanel.png')
+                img(src='../../../img/offer/offer.jpg')
             div.services-content
                 h3.title
                     | Czym się zajmujemy?

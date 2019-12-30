@@ -14,7 +14,7 @@
                     router-link(to="/oferta")
                         | Oferta
                 li.link(@click='toggleMenu()')
-                    router-link(to="/onas")
+                    router-link(to="/firma")
                         | O Firmie
                 li.link(@click='toggleMenu()')
                     router-link(to="/kalkulator")
