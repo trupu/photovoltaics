@@ -4,7 +4,7 @@
             div.single-counter(v-for='key in counterData')
                 i(:class='key.icon')
                 p.amount
-                    | {{ key.amount }}
+                    | :)
                 p.content
                     | {{ key.content }}
 </template>
@@ -29,8 +29,40 @@ export default {
                     amount: 999,
                     icon: 'fas fa-leaf'
                 }
-            ]
+            ],
+            scrollTimeout: ''
         }
+    },
+    methods: {
+        async countData(el, amount, time, after = '') {
+            for (let i=0; i <= amount; i++) {
+                setTimeout(() => {
+                    el.textContent = `${i}${after}`;
+                }, time/amount);
+            }
+            return;
+        },
+        counterTrigger() {
+            const parent = document.querySelector('.counter-wrapper');
+            const els = parent.querySelectorAll('.amount');
+            const elements = Array.from(els);
+
+            elements.map((el, index) => {
+                this.countData(el, this.counterData[index].amount, 2000);
+            });
+        },
+        triggerMethod() {
+            clearTimeout(this.scrollTimeout);
+            this.scrollTimeout = setTimeout(() => {
+                if (window.scrollY > 100) {
+                    this.counterTrigger();
+                    window.removeEventListener('scroll', this.triggerMethod);
+                }
+            }, 100);
+        }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.triggerMethod);
     }
 }
 </script>
