@@ -85,6 +85,12 @@ export default {
                     font-weight: 300;
                     text-transform: uppercase;
                 }
+
+                transition: all .3s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
     }

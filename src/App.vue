@@ -36,6 +36,13 @@ export default {
             this.header.description = description;
             this.header.path = path.split('/')[1];
         }
+    },
+    mounted() {
+        window.addEventListener('beforeunload', (e) => {
+            e.preventDefault();
+            this.$router.push('/');
+            delete e['returnValue'];
+        });
     }
 }
 </script>
