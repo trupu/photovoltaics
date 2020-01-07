@@ -32,6 +32,8 @@ export default {
         align-items: center;
         justify-content: space-between;
 
+        z-index: 50;
+
         margin-top: 60px;
         padding: 0 10px;
 
