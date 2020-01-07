@@ -15,7 +15,7 @@
             | Twoja Wiadomość (wymagane)
             textarea(rows='5' cols='10')
         div.button-wrapper
-            button.button-medium
+            button.button-small
                 | Wyślij
 </template>
 <script>
@@ -92,6 +92,11 @@ export default {
 
             button {
                 margin: 20px 0;
+
+                &:hover {
+                    background-color: $lightCyan;
+                    border: 1px solid $lightCyan;
+                }
             }
         }
     }
