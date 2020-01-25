@@ -50,7 +50,7 @@ export default {
         justify-content: center;
         justify-items: center;
 
-        width: 100%;
+        width: 100vw;
         min-height: 100vh;
 
         position: relative;
