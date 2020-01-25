@@ -1,21 +1,27 @@
 <template lang="pug">
     div.team-container
-        h4.team-title
+        h4.team-title.animation-onshow_left.animation-hide
             | Zespół
         div.team-wrapper(v-for='key in teamArray' :class='key.reverse')
-            div.team-content
+            div.team-content.animation-onshow_left.animation-hide
                 h4.name
                     | {{ key.name }}
                 p.position
                     | {{ key.position }}
                 p.desc
                     | {{ key.desc }}
-            div.team-image
+            div.team-image.animation-onshow_right.animation-hide
                 img(:src='key.img')
+        <Animation />
 </template>
 <script>
+import Animation from '../Animation.vue';
+
 export default {
     name: 'Team',
+    components: {
+        Animation
+    },
     data() {
         return {
             teamArray: [

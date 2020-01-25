@@ -52,9 +52,10 @@ export default {
             });
         },
         triggerMethod() {
+            const el = document.querySelector('.counter-container');
             clearTimeout(this.scrollTimeout);
             this.scrollTimeout = setTimeout(() => {
-                if (window.scrollY > 100) {
+                if (Math.abs(el.getBoundingClientRect().y) >= 0) {
                     this.counterTrigger();
                     window.removeEventListener('scroll', this.triggerMethod);
                 }

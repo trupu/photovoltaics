@@ -6,10 +6,12 @@
         div.button-wrapper
             button.button-medium(v-if='imagesAvailable' @click='getProject(currentIndex, 6)')
                 | Pokaż Więcej
+        <Animation />
 </template>
 <script>
 import projectsArray from '../../mixins/projects_about';
 import Buttons from '../../components/Buttons.vue';
+import Animation from '../Animation.vue';
 
 export default {
     name: 'Projects',
@@ -21,7 +23,8 @@ export default {
         }
     },
     components: {
-        Buttons
+        Buttons,
+        Animation
     },
     methods: {
         // generating projects
