@@ -13,6 +13,9 @@ export default {
 </script>
 <style lang="scss">
 
+    $darkCyan: #186a6b;
+    $lightCyan: #249fa1;
+
     #contact-mini {
         width: 100%;
         height: auto;
@@ -31,6 +34,17 @@ export default {
 
             margin-bottom: 30px;
             text-align: center;
+        }
+
+        a {
+            button {
+                border: 1px solid $lightCyan;
+                &:hover {
+                    border-radius: 5px;
+                    border: 1px solid $lightCyan;
+                    background-color: $lightCyan;
+                }
+            }
         }
     }
 

@@ -12,6 +12,7 @@ export default {
         }
     },
     methods: {
+        // animation mechanics
         animationOnshow(el, name) {
             if (window.scrollY >= (el.offsetTop-screen.height) && window.scrollY <= (el.offsetTop+el.offsetHeight)) {
                 el.style.animation = name;
@@ -19,6 +20,7 @@ export default {
                 el.style.animation = '';
             }
         },
+        // animation wrapper
         animationSet() {
             const left = document.querySelectorAll('.animation-onshow_left');
             if (left) left.forEach((el, index) => this.animationScrollController({el, index}, 'onshow_left 1s ease-in-out both'));
@@ -29,6 +31,7 @@ export default {
             const popup = document.querySelectorAll('.animation-onshow_popup');
             if (popup) popup.forEach((el, index) => this.animationScrollController({el, index: index+20}, 'onshow_popup 1s ease-in-out both'));
         },
+        // trigger animation
         animationScrollController(obj, name) {
             if (this.firstlySeen[obj.index] !== true) {
                 this.animationOnshow(obj.el, name);
