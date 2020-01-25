@@ -1,12 +1,12 @@
 <template lang='pug'>
     section#calc
-        div.calc-header
+        div.calc-header.animation-onshow_left.animation-hide
             | Podaj miesięczny koszt energii:
             input#value(type='text' v-model='calculator.cost' @input='calcService(calculator.cost)')
             | PLN / miesięcznie
             p.error-handler(v-if='calculator.errorMessage')
                 | {{ calculator.errorMessage }}
-        div.calc-wrapper
+        div.calc-wrapper.animation-onshow_popup.animation-hide
             div.single-calc
                 p.header
                     | Podstawowe dane:
@@ -57,23 +57,26 @@
                         | Powierzchnia modułów:
                         b.color-changer
                             | {{ calculator.module2Surface }}m<sup>2</sup>
-        div.calc-header
+        div.calc-header.animation-onshow_left.animation-hide
             | Twoja oszczędność:
             b.color-changer
                 | {{ calculator.yearlySafe }}
             | PLN / rocznie
-        div.calc-info
+        div.calc-info.animation-onshow_left.animation-hide
             | * - średnia cena prądu z dnia 01.01.2020r (0.55zł/kWh).
         <ContactMini class='changed-contact'/>
+        <Animation />
 </template>
 <script>
 import calc from '../mixins/calc';
 import ContactMini from '../components/Contact-mini.vue';
+import Animation from '../components/Animation.vue';
 
 export default {
     name: 'Calc',
     components: {
-        ContactMini
+        ContactMini,
+        Animation
     },
     data() {
         return {
