@@ -4,12 +4,14 @@
         <Counter />
         <Team />
         <ContactMini />
+        <Projects />
 </template>
 <script>
 import ContactMini from '../components/Contact-mini.vue';
 import Main from '../components/about/Main.vue';
 import Team from '../components/about/Team.vue';
 import Counter from '../components/about/Counter.vue';
+import Projects from '../components/about/Projects.vue';
 
 export default {
     name: 'About',
@@ -17,7 +19,8 @@ export default {
         ContactMini,
         Main,
         Team,
-        Counter
+        Counter,
+        Projects
     },
     data() {
         return {
