@@ -18,6 +18,9 @@ export default {
         MiniOffer,
         Projects,
         Opinions
+    },
+    mounted() {
+        window.scrollTo(0,0);
     }
 }
 </script>

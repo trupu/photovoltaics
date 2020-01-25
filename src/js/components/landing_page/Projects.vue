@@ -115,7 +115,7 @@ export default {
 @keyframes showSlideContent {
     0% {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-100px);
     }
     100% {
         opacity: 1;

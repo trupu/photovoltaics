@@ -51,7 +51,7 @@ export default {
         justify-items: center;
 
         width: 100%;
-        height: auto;
+        min-height: 100vh;
 
         position: relative;
         overflow-x: hidden;

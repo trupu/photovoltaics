@@ -157,6 +157,7 @@ export default {
             this.componentsColorsChanger('#fff', '#249fa1', '#fff');
             this.calculateValues(this.calculator.cost);
         }, 100);
+        window.scrollTo(0,0);
     },
     destroyed() {
         this.$parent.header.renderPath = false;

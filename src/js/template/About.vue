@@ -34,6 +34,7 @@ export default {
     },
     mounted() {
         this.$parent.changeTitle(this.header.title, this.header.subtitle, this.header.description, this.header.path);
+        window.scrollTo(0,0);
     },
     destroyed() {
         this.$parent.header.renderPath = false;
