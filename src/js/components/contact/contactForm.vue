@@ -1,5 +1,5 @@
 <template lang="pug">
-    form.contact-form
+    form.contact-form.animation-onshow_right.animation-hide
         h4.contact-form_header
             | Formularz Kontaktowy
         label
@@ -17,12 +17,17 @@
         div.button-wrapper
             button.button-small
                 | Wyślij
+        <Animation />
 </template>
 <script>
 import Buttons from '../../components/Buttons.vue';
+import Animation from '../Animation.vue';
 
 export default {
-    name: 'contactForm'
+    name: 'contactForm',
+    components: {
+        Animation
+    }
 }
 </script>
 <style lang="scss">

@@ -1,8 +1,8 @@
 <template lang="pug">
     div.contact-data
-        h4.contact-data_header
+        h4.contact-data_header.animation-onshow_left.animation-hide
             | Dane kontaktowe
-        div.contact-data_content
+        div.contact-data_content.animation-onshow_left.animation-hide
             a.content__data(v-for='key in contactData' v-if='key.link != "#"'  :href='key.link' target='_blank')
                 i(:class='key.icon')
                 p
@@ -11,10 +11,16 @@
                 i(:class='key.icon')
                 p
                     | {{ key.name }}
+        <Animation />
 </template>
 <script>
+import Animation from '../Animation.vue';
+
 export default {
     name: 'contactData',
+    components: {
+        Animation
+    },
     data() {
         return {
             contactData: [
