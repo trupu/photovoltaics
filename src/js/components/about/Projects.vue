@@ -24,6 +24,7 @@ export default {
         Buttons
     },
     methods: {
+        // generating projects
         getProject(index, amount) {
             const array = this.projectsArray;
             for (let i = index; i < (index+amount); i++) {
@@ -53,8 +54,25 @@ export default {
                 const div_img = document.createElement('div');
                 div_img.classList.add('img');
                 
+
+                // loading animation
+                const loaderWrapper = document.createElement('div');
+                loaderWrapper.classList.add('loader-wrapper');
+                for (let i = 0; i < 3; i++) {
+                    let loaderCircle = document.createElement('div');
+                    loaderCircle.classList.add('loader-circle');
+                    loaderWrapper.appendChild(loaderCircle);
+                }
+                div_img.appendChild(loaderWrapper);
+
+                
                 const img = document.createElement('img');
                 img.setAttribute('src', `./img/about_projects/${el.img}`);
+                img.onload = () => {
+                    img.style.opacity = 1;
+                    loaderWrapper.opacity = 0;
+                };
+
 
                 div_img.appendChild(img);
                 div.appendChild(div_img);
@@ -86,6 +104,21 @@ export default {
 
     $darkCyan: #186a6b;
     $lightCyan: #249fa1;
+
+@keyframes loadingAnimation {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
     #projects {
         display: flex;
@@ -160,15 +193,48 @@ export default {
                     height: 300px;
                     box-shadow: 0px 0px 5px 1px #000;
                     overflow: hidden;
+                    position: relative;
 
                     img {
                         width: 100%;
                         height: 300px;
                         object-fit: cover;
+                        opacity: 0.2;
 
-                        transition: all 1s ease-out;
+                        transition: transform 1s ease-out, opacity .3s ease-in-out;
                         &:hover {
                             transform: scale(1.4);
+                        }
+                    }
+
+                    .loader-wrapper {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+
+                        display: flex;
+                        flex-flow: row;
+                        align-items: center;
+                        justify-content: center;
+
+                        z-index: -1;
+                        transition: opacity .3s ease-in-out;
+
+                        .loader-circle {
+                            border-radius: 50%;
+                            width: 30px;
+                            height: 30px;
+
+                            background-color: $lightCyan;
+                            margin: 0 8px; 
+                        }
+
+                        @for $i from 1 through 3 {
+                            .loader-circle:nth-child(#{$i}) {
+                                animation: loadingAnimation 1s 0.0s+($i/10) ease-in-out infinite both;
+                            }
                         }
                     }
                 }

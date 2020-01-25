@@ -49,6 +49,8 @@ export default {
         flex-flow: column;
         align-items: center;
         justify-content: center;
+
+        overflow-x: hidden;
     }
 
 </style>

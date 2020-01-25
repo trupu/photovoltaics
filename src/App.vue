@@ -54,6 +54,7 @@ export default {
         height: auto;
 
         position: relative;
+        overflow-x: hidden;
     }
 
     .color-changer {

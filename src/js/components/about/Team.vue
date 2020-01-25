@@ -106,7 +106,7 @@ export default {
                 margin: 0 20px;
                 width: 100%;
                 img {
-                    width: auto;
+                    width: 100%;
                     height: 200px;
                 }
             }
