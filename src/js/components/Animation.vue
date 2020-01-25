@@ -14,11 +14,18 @@ export default {
     methods: {
         // animation mechanics
         animationOnshow(el, name) {
+            if (Math.abs(el.getBoundingClientRect().y) >= 0 && Math.abs(el.getBoundingClientRect().y) <= screen.height) {
+                el.style.animation = name;
+            } else {
+                el.style.animation = '';
+            }
+            /*
             if (window.scrollY >= (el.offsetTop-screen.height) && window.scrollY <= (el.offsetTop+el.offsetHeight)) {
                 el.style.animation = name;
             } else {
                 el.style.animation = '';
             }
+            */
         },
         // animation wrapper
         animationSet() {

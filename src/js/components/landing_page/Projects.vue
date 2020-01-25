@@ -1,22 +1,24 @@
 <template lang="pug">
     section#projects
         div.projects_wrapper
-            h3.projects_title
+            h3.projects_title.animation-onshow_right.animation-hide
                 | Ostatnie
                 span.color-changer
                     | Projekty
-            p.projects_description
+            p.projects_description.animation-onshow_right.animation-hide
                 | Realizując projekty stawiamy na pełen profesjonalizm. Działamy na terenie Polski i Niemiec.
         div.projects_slider
         div.projects_calculator
-            p
+            p.animation-onshow_left.animation-hide
                 | Wyceń montaż paneli już dziś!
-            router-link(to='/kalkulator')
+            router-link(to='/kalkulator').animation-onshow_right.animation-hide
                 button.button-medium_reverse
                     | Kalkulator
+        <Animation />
 </template>
 <script>
 import projectData from '../../mixins/project_slider';
+import Animation from '../Animation.vue';
 
 export default {
     name: 'Projects',
@@ -26,6 +28,9 @@ export default {
             sliderInterval: '',
             currentIndex: ''
         }
+    },
+    components: {
+        Animation
     },
     methods: {
         showRandomProject() {
@@ -185,7 +190,7 @@ export default {
                 top: 0;
                 left: 0;
 
-                animation: showSlideContainer .5s ease-in-out forwards;
+                animation: showSlideContainer 1s ease-in-out forwards;
 
                 .project-image {
                     width: 100%;
@@ -281,8 +286,8 @@ export default {
                     }
 
                     .project-content {
-                        transition: opacity .1s ease-in-out;
-                        animation: showSlideContent .5s ease-in-out both;
+                        transition: opacity .5s ease-in-out;
+                        animation: showSlideContent 1s ease-in-out both;
                         width: 50%;
 
                         position: relative;

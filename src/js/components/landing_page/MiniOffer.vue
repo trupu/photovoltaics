@@ -1,12 +1,12 @@
 <template lang="pug">
     section#mini-offer
-        div.mini-offer_wrapper
+        div.mini-offer_wrapper.animation-onshow_left.animation-hide
             h3.wrapper__title
                 | Oferta
             p.wrapper__content
                 | Zdajemy sobie sprawę, że Odnawialne Źródła Energii są przyszłością świata. Oferujemy solidne rozwiązania oparte o najnowsze technologie, a to wszystko pod okiem najlepszych specjalistów. Postaw na przyszłość!
         div.mini-offer_icons
-            div.icons_single(v-for='keys in offers')
+            div.icons_single.animation-onshow_popup.animation-hide(v-for='keys in offers')
                 i(:class='keys.icon')
                 h4.mini-title
                     | {{ keys.title }}
@@ -14,8 +14,11 @@
                         | {{ keys.subtitle }}
                 p.content
                     | {{ keys.content }}
+        <Animation />
 </template>
 <script>
+import Animation from '../Animation.vue';
+
 export default {
     name: 'MiniOffer',
     data() {
@@ -41,6 +44,9 @@ export default {
                     }
             ]
         }
+    },
+    components: {
+        Animation
     }
 
 }
