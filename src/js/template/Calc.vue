@@ -84,6 +84,7 @@ export default {
                 path: window.location.pathname
             },
             calc,
+            calcTimeout: '',
             calculator: {
                 errorMessage: '',
                 cost: 100,
@@ -153,13 +154,14 @@ export default {
     },
     mounted() {
         this.$parent.changeTitle(this.header.title, this.header.subtitle, this.header.description, this.header.path);
-        setTimeout(() => {
+        this.calcTimeout = setTimeout(() => {
             this.componentsColorsChanger('#fff', '#249fa1', '#fff');
             this.calculateValues(this.calculator.cost);
         }, 100);
         window.scrollTo(0,0);
     },
     destroyed() {
+        clearTimeout(this.calcTimeout);
         this.$parent.header.renderPath = false;
         this.componentsColorsChanger('#000', '#555', '#000');
     }

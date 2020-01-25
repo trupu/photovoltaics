@@ -1,5 +1,5 @@
 <template lang="pug">
-    section#services
+    section#services.animation-onshow_left.animation-hide
         div.services-wrapper
             div.services-img
                 img(src='../../../img/offer/offer.jpg')
@@ -10,8 +10,13 @@
                     | Zajmujemy się profesjonalnym montażem paneli fotowoltaicznych na terenie gospodarstwa domowego. Panele PV pokryte są szkłem hartowanym, gwarantującym wysoką odporność na uszkodzenia spowodowane warunkami atmosferycznymi. <br/><br/> W naszej ofercie znajduje się instalacja PV zarówno na dachu, jak i na gruncie.
 </template>
 <script>
+import Animation from '../Animation.vue';
+
 export default {
-    name: 'Services'
+    name: 'Services',
+    components: {
+        Animation
+    }
 }
 </script>
 <style lang="scss">

@@ -1,5 +1,5 @@
 <template lang="pug">
-    section#PVDescription
+    section#PVDescription.animation-onshow_left.animation-hide
         div.pv-title
             h3.title
                 | Czym jest
@@ -13,10 +13,16 @@
             | Kolektory słoneczne zamieniają energię słoneczną na energię cieplną, dlatego służą głównie do przygotowania ciepłej wody użytkowej (c.w.u.). Mała instalacja z 2–3 kolektorami pokrywa ok. 50% rocznego zapotrzebowania na energię niezbędną do podgrzania c.w.u. dla 4-osobowej rodziny.
             <br /><br />
             | Panele Fotowoltaiczne natomiast uzyskują prąd elektryczny - czystą energię, którą można wykorzystać w dowolny sposób. Priorytet ma zasilanie domowych urządzeń elektrycznych, bo w ten sposób zmniejszamy zużycie dość drogiego przecież prądu z sieci. Podłączając się do sieci udostępniamy uzyskany przez nas nadmiar energii, dzięki czemu zimą, gdy panele są mniej wydajne, prąd uzyskujemy właśnie z sieci, a w rozliczeniu rocznym jesteśmy na 0, często nawet na plus.
+        <Animation />
 </template>
 <script>
+import Animation from '../Animation.vue';
+
 export default {
-    name: 'PVDescription'
+    name: 'PVDescription',
+    components: {
+        Animation
+    }
 }
 </script>
 <style lang="scss">

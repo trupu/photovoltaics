@@ -1,11 +1,11 @@
 <template lang="pug">
     section#benefits
-        h3.benefits-title
+        h3.benefits-title.animation-onshow_left.animation-hide
             | Korzyści płynące z
             span.color-changer
                 | Fotowoltaiki
         div.benefits-wrapper
-            div.single_benefit(v-for='key in benefits')
+            div.single_benefit.animation-onshow_popup.animation-hide(v-for='key in benefits')
                 div.benefit_icon
                     i(:class='key.icon')
                 div.benefit_content
@@ -15,9 +15,11 @@
                             | {{ key.subname }}
                     p.content
                         | {{ key.content }}
+        <Animation />
 </template>
 <script>
 import benefits from '../../mixins/benefits';
+import Animation from '../Animation.vue';
 
 export default {
     name: 'Benefits',
@@ -25,6 +27,9 @@ export default {
         return {
             benefits
         }
+    },
+    components: {
+        Animation
     }
 }
 </script>
