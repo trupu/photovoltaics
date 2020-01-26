@@ -55,7 +55,7 @@ export default {
             const el = document.querySelector('.counter-container');
             clearTimeout(this.scrollTimeout);
             this.scrollTimeout = setTimeout(() => {
-                if (Math.abs(el.getBoundingClientRect().y) >= 0) {
+                if (Math.abs(el.getBoundingClientRect().y) >= 0 && Math.abs(el.getBoundingClientRect().y+el.getBoundingClientRect().height-100) <= screen.height) {
                     this.counterTrigger();
                     window.removeEventListener('scroll', this.triggerMethod);
                 }
@@ -63,6 +63,7 @@ export default {
         }
     },
     mounted() {
+        this.triggerMethod();
         window.addEventListener('scroll', this.triggerMethod);
     }
 }
