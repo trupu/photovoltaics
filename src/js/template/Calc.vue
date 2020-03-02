@@ -58,10 +58,9 @@
                         b.color-changer
                             | {{ calculator.module2Surface }}m<sup>2</sup>
         div.calc-installation.animation-onshow_popup.animation-hide
-            | Szacowany koszt instalacji:
-            b.color-changer
-                | {{ calculator.installationCost }}
-            | PLN
+            | {{ calculator.installationCost }}
+            p.warning
+                | Jest to jedynie szacowany koszt instalacji. Cena może się zmienić, zależnie od rodzaju zadaszenia oraz rodzaju dachówki.
         div.calc-header.animation-onshow_left.animation-hide
             | Twoja oszczędność:
             b.color-changer
@@ -95,7 +94,7 @@ export default {
             calcTimeout: '',
             calculator: {
                 errorMessage: '',
-                cost: 100,
+                cost: 120,
                 // Energy cost based on globenergia.pl data 2020
                 energyCost: 0.50,
                 energyPower: 0.025,
@@ -144,7 +143,7 @@ export default {
             c.module1Surface = Math.round((c.neededSurface * c.module1Amount*100))/100;
             c.module2Surface = Math.round((c.neededSurface * c.module2Amount*100))/100;
             c.yearlySafe = value*12;
-            c.installationCost = this.calc.getCost(c.neededPower);
+            c.installationCost = this.calc.getCost(c.neededPower, c.module2Energy);
         },
         calcService(cost) {
             const input = document.querySelector('#value');
@@ -155,8 +154,8 @@ export default {
             }
             this.calculator.errorMessage = '';
             input.style.color = '#249fa1';
-            if (cost > 999) {
-                this.calculator.errorMessage = 'Dla tak wysokich rachunków polecamy wycenę indywidualną';
+            if (cost > 390) {
+                this.calculator.errorMessage = 'Dla tak wysokich rachunków zalecamy wycenę indywidualną';
                 input.style.color = '#E8BE3F';
             }
             this.calculateValues(cost);
@@ -203,8 +202,16 @@ export default {
             flex-flow: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
 
             width: 100%;
+            font-size: 1.2em;
+
+            .warning {
+                margin: 15px 0 30px 0;
+                color: goldenrod;
+                font-size: .6em;
+            }
         }
 
         .calc-header {
