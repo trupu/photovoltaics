@@ -74,6 +74,8 @@ export default {
             p.classList.add('power');
             p.textContent = this.projectData[index].power;
             pc.appendChild(p);
+
+            sp.style.opacity = '1';
         },
         sliderEngine() {
             const active = document.querySelector('.single-project');
@@ -97,7 +99,7 @@ export default {
         this.showRandomProject();
         this.sliderInterval = setInterval(() => {
             this.sliderEngine();
-        }, 8000);
+        }, 4000);
     },
     destroyed() {
         clearInterval(this.sliderInterval);
@@ -190,7 +192,9 @@ export default {
                 top: 0;
                 left: 0;
 
-                animation: showSlideContainer 1s ease-in-out forwards;
+                transition: opacity .5s ease-in-out;
+                
+                animation: showSlideContainer .5s ease-in-out both;
 
                 .project-image {
                     width: 100%;
@@ -208,14 +212,14 @@ export default {
                     align-items: center;
                     justify-content: center;
                     flex-flow: column;
-                    z-index: 80;
+                    z-index: 40;
 
                     position: absolute;
                     top: 0;
                     left: 0;
 
                     opacity: 0;
-                    transform: translateX(-100%);
+                    //transform: translateX(-100%);
 
                     width: 100%;
                     height: 300px;
