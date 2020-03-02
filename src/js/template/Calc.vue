@@ -57,6 +57,11 @@
                         | Powierzchnia modułów:
                         b.color-changer
                             | {{ calculator.module2Surface }}m<sup>2</sup>
+        div.calc-installation.animation-onshow_popup.animation-hide
+            | Szacowany koszt instalacji:
+            b.color-changer
+                | {{ calculator.installationCost }}
+            | PLN
         div.calc-header.animation-onshow_left.animation-hide
             | Twoja oszczędność:
             b.color-changer
@@ -99,15 +104,16 @@ export default {
                 monthlyEnergy: '',
                 yearlyEnergy: '',
                 neededPower: '',
-                module1: 290,
+                module1: 325,
                 module1Amount: '',
-                module1Energy: 0.29,
+                module1Energy: 0.325,
                 module1Surface: '',
-                module2: 320,
+                module2: 340,
                 module2Amount: '',
-                module2Energy: 0.32,
+                module2Energy: 0.34,
                 module2Surface: '',
-                yearlySafe: ''
+                yearlySafe: '',
+                installationCost: '',
             }
         }
     },
@@ -138,6 +144,7 @@ export default {
             c.module1Surface = Math.round((c.neededSurface * c.module1Amount*100))/100;
             c.module2Surface = Math.round((c.neededSurface * c.module2Amount*100))/100;
             c.yearlySafe = value*12;
+            c.installationCost = this.calc.getCost(c.neededPower);
         },
         calcService(cost) {
             const input = document.querySelector('#value');
