@@ -198,6 +198,15 @@ export default {
             margin: 0 5px;
         }
 
+        .calc-installation {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+        }
+
         .calc-header {
             width: 100%;
             margin: 30px 0;
