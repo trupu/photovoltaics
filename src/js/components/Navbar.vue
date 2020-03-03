@@ -76,7 +76,7 @@ export default {
         controlScrollBehaviour() {
             const nav = document.querySelector('#navbar');
             if (window.scrollY > 50) {
-                nav.style.backgroundColor = 'rgba(0,0,0,.4)';
+                nav.style.backgroundColor = 'rgba(24,106,107,.6)';
             } else {
                 nav.style.background = 'none';
             }

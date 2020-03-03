@@ -97,7 +97,7 @@ export default {
                 cost: 120,
                 // Energy cost based on globenergia.pl data 2020
                 energyCost: 0.50,
-                energyPower: 0.025,
+                energyPower: 0.022,
                 neededSurface: 1.7,
                 yearlyExpense: '',
                 monthlyEnergy: '',

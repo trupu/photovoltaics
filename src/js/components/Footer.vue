@@ -25,7 +25,7 @@ export default {
                 {
                     icon: 'fab fa-facebook-f',
                     name: 'Facebook',
-                    url: 'https://facebook.com',
+                    url: 'https://facebook.com/grzegorz.chabior.9',
                     target: true
                 },
                 {
@@ -36,7 +36,7 @@ export default {
                 },
                 {
                     icon: 'fas fa-phone',
-                    name: '997 997 997',
+                    name: '785 534 638',
                     url: '/kontakt',
                     target: false
                 }
