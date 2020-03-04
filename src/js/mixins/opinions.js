@@ -1,17 +1,17 @@
 export default [
     {
-        content: 'Cieszę się, że podjąłem decyzje przejścia na OZE. Montaż przebiegł szybko i sprawnie. Panele prezentują się świetnie :)',
+        content: 'Cieszę się, że podjąłem decyzje przejścia na OZE. Montaż przebiegł szybko i sprawnie. Panele prezentują się świetnie.',
         name: 'Marek',
         city: 'Nowa Sól'
     },
     {
-        content: 'Cieszę się, że podjąłem decyzje przejścia na OZE. Montaż przebiegł szybko i sprawnie. Panele prezentują się świetnie Montaż przebiegł szybko i sprawnie. Panele prezentują się świetnie Montaż przebiegł szybko i sprawnie. Panele prezentują się świetnie :)',
+        content: 'Zdecydowałem się na instalację paneli fotowoltaicznych głównie ze względu na ciągle rosnące rachunki za prąd. Do OZE przekonały mnie oszczędność i 25letnia gwarancja.',
         name: 'Darek',
-        city: 'Kożuchów'
+        city: 'Radwanice'
     },
     {
-        content: 'Tralalalalllalala lorem ipsum dupa jasiu :)',
-        name: 'Drozd',
-        city: 'Zielona Góra'
+        content: 'Pełen profesjonalizm. Instalacja przebiegła sprawnie oraz z humorem. Nie zawiodłem się.',
+        name: 'Damian',
+        city: 'Żagań'
     },
 ];
