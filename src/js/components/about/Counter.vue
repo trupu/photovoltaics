@@ -17,16 +17,19 @@ export default {
                 {
                     content: 'Zadowolonych klientów',
                     amount: 437,
+                    unit: '',
                     icon: 'fas fa-users'
                 },
                 {
                     content: 'Kilowatów mocy dostarczane przez nas',
                     amount: 2500,
+                    unit: '',
                     icon: 'far fa-lightbulb'
                 },
                 {
                     content: 'Ocalonego świeżego powietrza',
-                    amount: 999,
+                    amount: 100,
+                    unit: '%',
                     icon: 'fas fa-leaf'
                 }
             ],
@@ -48,7 +51,7 @@ export default {
             const elements = Array.from(els);
 
             elements.map((el, index) => {
-                this.countData(el, this.counterData[index].amount, 2000);
+                this.countData(el, this.counterData[index].amount, 2000, this.counterData[index].unit);
             });
         },
         triggerMethod() {
