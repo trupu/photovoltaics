@@ -17,7 +17,7 @@ class Calculate {
     }
 
     static getCost(pow, panel) {
-        return this.calculateCost(pow, panel) ? `Szacowany koszt instalacji: ${this.calculateCost(pow, panel)+1500}zł` : `Koszt instalacji nie przekroczy: ${this.otherInstallation(pow, panel)+1500}zł`;
+        return this.calculateCost(pow, panel) ? `Szacowany koszt instalacji: ${this.calculateCost(pow, panel)+1000}zł` : `Koszt instalacji nie przekroczy: ${this.otherInstallation(pow, panel)+1000}zł`;
     }
 }
 

@@ -57,16 +57,16 @@
                         | Powierzchnia modułów:
                         b.color-changer
                             | {{ calculator.module2Surface }}m<sup>2</sup>
-        div.calc-installation.animation-onshow_popup.animation-hide
+        div.calc-installation.animation-onshow_popup
             | {{ calculator.installationCost }}
             p.warning
                 | Jest to jedynie szacowany koszt instalacji. Cena może się zmienić, zależnie od rodzaju zadaszenia oraz rodzaju dachówki.
-        div.calc-header.animation-onshow_left.animation-hide
+        div.calc-header.animation-onshow_left
             | Twoja oszczędność:
             b.color-changer
                 | {{ calculator.yearlySafe }}
             | PLN / rocznie
-        div.calc-info.animation-onshow_left.animation-hide
+        div.calc-info.animation-onshow_left
             | * - średnia cena prądu z dnia 01.01.2020r (0.55zł/kWh).
         <ContactMini class='changed-contact'/>
         <Animation />
@@ -187,7 +187,7 @@ export default {
 
         background-color: #005b6b;
         color: #fff;
-        padding: 200px 5px 100px 5px;
+        padding: 250px 5px 100px 5px;
         position: absolute;
         top: 0;
         left: 0;
@@ -205,7 +205,7 @@ export default {
             text-align: center;
 
             width: 100%;
-            font-size: 1.2em;
+            font-size: 1.1em;
 
             .warning {
                 margin: 15px 0 30px 0;
@@ -223,7 +223,7 @@ export default {
             flex-flow: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.4em;
+            font-size: 1.2em;
             position: relative;
 
             .error-handler {
@@ -268,6 +268,7 @@ export default {
                 flex-flow: column;
                 align-items: center;
                 justify-items: flex-start;
+                font-size: .7em;
                 height: 100%;
 
                 .single-content {
