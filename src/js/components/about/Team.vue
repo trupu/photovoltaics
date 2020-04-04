@@ -124,4 +124,16 @@ export default {
     }
 }
 
+@media (min-width: 1024px) {
+    .team-container {
+        .team-wrapper {
+            .team-image {
+                img {
+                    height: 400px;
+                }
+            }
+        }
+    }
+}
+
 </style>

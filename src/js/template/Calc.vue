@@ -162,7 +162,7 @@ export default {
         }
     },
     mounted() {
-        this.$parent.changeTitle(this.header.title, this.header.subtitle, this.header.description, this.header.path);
+        this.$store.commit('changeTitle', [this.header.title, this.header.subtitle, this.header.description, this.header.path]);
         this.calcTimeout = setTimeout(() => {
             this.componentsColorsChanger('#fff', '#249fa1', '#fff');
             this.calculateValues(this.calculator.cost);
@@ -171,7 +171,7 @@ export default {
     },
     destroyed() {
         clearTimeout(this.calcTimeout);
-        this.$parent.header.renderPath = false;
+        this.$store.state.header.renderPath = false;
         this.componentsColorsChanger('#000', '#555', '#000');
     }
 }

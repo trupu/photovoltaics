@@ -19,6 +19,8 @@ export default {
     },
     data() {
         return {
+            /*
+            OLD PATH STATE
             header: {
                 renderPath: false,
                 title: '',
@@ -26,9 +28,12 @@ export default {
                 description: '',
                 path: ''
             }
+            */
         }
     },
     methods: {
+        /*
+        OLD PATH MUTATION
         changeTitle(title, subtitle, description, path) {
             this.header.renderPath = true;
             this.header.title = title;
@@ -36,6 +41,7 @@ export default {
             this.header.description = description;
             this.header.path = path.split('/')[1];
         }
+        */
     }
 }
 </script>

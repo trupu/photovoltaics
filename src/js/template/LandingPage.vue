@@ -27,5 +27,6 @@ export default {
 <style lang="scss">
     #landing {
         height: auto;
+        width: 100%;
     }
 </style>
