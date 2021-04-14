@@ -96,7 +96,7 @@ export default {
         Host: "smtp.elasticemail.com",
         Username: "strubilowicz@zsp5kozuchow.pl",
         Password: "C874E2408725531AA590776014BD98F28451",
-        To: "slavko221@gmail.com",
+        To: "trupeusz@gmail.com",
         From: this.form.mail,
         Subject: this.form.topic,
         Body: `Wiadomość przesłana ze strony fotowoltaika-grzegorz.pl<br /><br />${this.form.message}<br /><br />email wysyłającego: ${this.form.mail}`,

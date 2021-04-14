@@ -17,6 +17,8 @@
                 | Sławomir Trubiłowicz
 </template>
 <script>
+import SOCIALS from "../config/socials";
+
 export default {
   name: "Footer",
   data() {
@@ -25,19 +27,19 @@ export default {
         {
           icon: "fab fa-facebook-f",
           name: "Facebook",
-          url: "https://facebook.com/grzegorz.chabior.9",
+          url: SOCIALS.FACEBOOK,
           target: true,
         },
         {
           icon: "far fa-envelope",
-          name: "ekoenergiazg@gmail.com",
+          name: SOCIALS.EMAIL,
           url: "/kontakt",
           target: false,
         },
         {
           icon: "fas fa-phone",
-          name: "785 534 638",
-          url: "tel:785534638",
+          name: SOCIALS.PHONE[0].formatted,
+          url: `tel:${SOCIALS.PHONE[0].normal}`,
           target: false,
         },
       ],
@@ -46,9 +48,6 @@ export default {
 };
 </script>
 <style lang="scss">
-$darkCyan: #186a6b;
-$lightCyan: #249fa1;
-
 #footer {
   display: flex;
   flex-flow: column;
@@ -59,7 +58,7 @@ $lightCyan: #249fa1;
   height: 300px;
   padding: 10px 5px;
 
-  background-color: $darkCyan;
+  background-color: $color-secondary;
 
   .footer-wrapper {
     display: flex;
@@ -77,7 +76,7 @@ $lightCyan: #249fa1;
         align-items: center;
 
         text-decoration: none;
-        color: darken($darkCyan, 10%);
+        color: darken($color-secondary, 10%);
 
         margin: 0 15px;
 
@@ -92,7 +91,7 @@ $lightCyan: #249fa1;
         }
 
         &:hover {
-          color: lighten($lightCyan, 10%);
+          color: lighten($color-primary, 10%);
           cursor: pointer;
 
           transform: scale(1.2);
@@ -103,7 +102,7 @@ $lightCyan: #249fa1;
 
   .author {
     font-size: 0.8em;
-    color: darken($darkCyan, 10%);
+    color: darken($color-secondary, 10%);
 
     display: flex;
     align-items: center;
@@ -113,7 +112,7 @@ $lightCyan: #249fa1;
 
     a {
       font-size: 1.1em;
-      color: $lightCyan;
+      color: $color-primary;
       text-decoration: none;
       margin: 0 5px;
     }

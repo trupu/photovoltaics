@@ -15,6 +15,7 @@
 </template>
 <script>
 import Animation from "../Animation.vue";
+import SOCIALS from "../../config/socials";
 
 export default {
   name: "contactData",
@@ -27,25 +28,25 @@ export default {
         {
           name: "Facebook",
           icon: "fab fa-facebook-f",
-          link: "https://facebook.com/grzegorz.chabior.9",
+          link: SOCIALS.FACEBOOK,
         },
         {
-          name: "ekoenergiazg@gmail.com",
+          name: SOCIALS.EMAIL,
           icon: "far fa-envelope",
-          link: "#",
+          link: `mail:${SOCIALS.EMAIL}`,
         },
         {
-          name: "785 534 638 - Grzegorz",
+          name: `${SOCIALS.PHONE[0].formatted} - ${SOCIALS.PHONE[0].owner}`,
           icon: "fas fa-phone",
-          link: "#",
+          link: `tel:${SOCIALS.PHONE[0].normal}`,
         },
         {
-          name: "501 040 738 - Krzysztof",
+          name: `${SOCIALS.PHONE[1].formatted} - ${SOCIALS.PHONE[1].owner}`,
           icon: "fas fa-phone",
-          link: "#",
+          link: `tel:${SOCIALS.PHONE[1].normal}`,
         },
         {
-          name: "Kouchowska 15A 415-416, 65-001 Zielona Góra",
+          name: "Kożuchowska 15A 415-416, 65-001 Zielona Góra",
           icon: "fas fa-map-marker-alt",
           link: "#",
         },
