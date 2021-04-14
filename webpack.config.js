@@ -1,69 +1,75 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPugPlugin = require("html-webpack-pug-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 const config = {};
 
 // config.mode = 'development';
 
 config.entry = {
-    app: './src/app.js'
-}
+  app: "./src/app.js",
+};
 
 config.output = {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, 'dist')
-}
+  filename: "[name].bundle.js",
+  path: path.resolve(__dirname, "dist"),
+};
 
 config.devServer = {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    port: 9000
-}
+  contentBase: path.join(__dirname, "dist"),
+  compress: true,
+  port: 9000,
+};
 
 config.module = {
-    rules: [
+  rules: [
+    {
+      test: /\.vue$/,
+      loader: "vue-loader",
+    },
+    {
+      test: /\.js$/,
+      loader: "babel-loader",
+    },
+    {
+      test: /\.pug$/,
+      oneOf: [
         {
-            test: /\.vue$/,
-            loader: 'vue-loader'
+          resourceQuery: /^\?vue/,
+          use: ["pug-plain-loader"],
         },
         {
-            test: /\.js$/,
-            loader: 'babel-loader'
+          use: ["pug-loader"],
         },
-        { 
-            test: /\.pug$/,
-            oneOf: [
-                {
-                  resourceQuery: /^\?vue/,
-                  use: ['pug-plain-loader']
-                },
-                {
-                  use: ['pug-loader']
-                }
-              ]
+      ],
+    },
+    {
+      test: /\.(scss|sass)$/,
+      oneOf: [
+        {
+          resourceQuery: /^\?vue/,
+          use: [
+            "vue-style-loader",
+            "css-loader",
+            {
+              loader: "sass-loader",
+              options: {
+                prependData: `@import "./src/scss/_variables.scss"; `,
+              },
+            },
+          ],
         },
         {
-            test: /\.(scss|sass)$/,
-            oneOf: [
-                {
-                    resourceQuery: /^\?vue/,
-                    use: ['vue-style-loader', 'css-loader', 'sass-loader']
-                },
-                {
-                    use: ExtractTextPlugin.extract({
-                        fallback: 'style-loader',
-                        use: ['css-loader', 'sass-loader']
-                    })
-                }
-            ]
+          use: [MiniCssExtractPlugin.loader, "css-loader"],
         },
-        {
-            test: /\.(gif|png|jpe?g|svg)$/i,
-            /*
+      ],
+    },
+    {
+      test: /\.(gif|png|jpe?g|svg)$/i,
+      /*
             use: [
                 'file-loader',
                 {
@@ -74,31 +80,29 @@ config.module = {
                 },
             ],
             */
-           use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: false,
-                esModule: false,
-              },
-            },
-          ],
-        }
-    ]
-}
+      use: [
+        {
+          loader: "url-loader",
+          options: {
+            limit: false,
+            esModule: false,
+          },
+        },
+      ],
+    },
+  ],
+};
 
 config.plugins = [
-    new HtmlWebpackPlugin({
-        template: './public/index.pug',
-        output: 'index.html'
-    }),
-    new ExtractTextPlugin({
-        filename: '[name].css'
-    }),
-    new VueLoaderPlugin(),
-    new CopyPlugin([
-        { from: './public/img', to: './img' }
-      ])
-]
+  new HtmlWebpackPlugin({
+    template: "./public/index.pug",
+    output: "index.html",
+  }),
+  new MiniCssExtractPlugin({
+    filename: "[name].css",
+  }),
+  new VueLoaderPlugin(),
+  new CopyPlugin([{ from: "./public/img", to: "./img" }]),
+];
 
 module.exports = config;

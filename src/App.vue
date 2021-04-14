@@ -6,20 +6,20 @@
         <Footer />
 </template>
 <script>
-import Navbar from './js/components/Navbar.vue';
-import Footer from './js/components/Footer.vue';
-import Title from './js/components/Title.vue';
+import Navbar from "./js/components/Navbar.vue";
+import Footer from "./js/components/Footer.vue";
+import Title from "./js/components/Title.vue";
 
 export default {
-    name: 'App',
-    components: {
-        Navbar,
-        Footer,
-        Title
-    },
-    data() {
-        return {
-            /*
+  name: "App",
+  components: {
+    Navbar,
+    Footer,
+    Title,
+  },
+  data() {
+    return {
+      /*
             OLD PATH STATE
             header: {
                 renderPath: false,
@@ -29,10 +29,10 @@ export default {
                 path: ''
             }
             */
-        }
-    },
-    methods: {
-        /*
+    };
+  },
+  methods: {
+    /*
         OLD PATH MUTATION
         changeTitle(title, subtitle, description, path) {
             this.header.renderPath = true;
@@ -42,30 +42,26 @@ export default {
             this.header.path = path.split('/')[1];
         }
         */
-    }
-}
+  },
+};
 </script>
 <style lang="scss">
-    $darkCyan: #186a6b;
-    $lightCyan: #249fa1;
+#main {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 
-    #main {
-        display: grid;
-        grid-template-columns: 1fr;
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
+  width: 100%;
+  min-height: 100vh;
 
-        width: 100%;
-        min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
 
-        position: relative;
-        overflow-x: hidden;
-    }
-
-    .color-changer {
-        color: $darkCyan;
-        font-size: 1.1em;
-    }
-
+.color-changer {
+  color: $color-secondary;
+  font-size: 1.1em;
+}
 </style>

@@ -18,124 +18,120 @@
 </template>
 <script>
 export default {
-    name: 'Footer',
-    data() {
-        return {
-            links: [
-                {
-                    icon: 'fab fa-facebook-f',
-                    name: 'Facebook',
-                    url: 'https://facebook.com/grzegorz.chabior.9',
-                    target: true
-                },
-                {
-                    icon: 'far fa-envelope',
-                    name: 'adres@email.com',
-                    url: '/kontakt',
-                    target: false
-                },
-                {
-                    icon: 'fas fa-phone',
-                    name: '785 534 638',
-                    url: '/kontakt',
-                    target: false
-                }
-            ]
-        }
-    }
-}
+  name: "Footer",
+  data() {
+    return {
+      links: [
+        {
+          icon: "fab fa-facebook-f",
+          name: "Facebook",
+          url: "https://facebook.com/grzegorz.chabior.9",
+          target: true,
+        },
+        {
+          icon: "far fa-envelope",
+          name: "ekoenergiazg@gmail.com",
+          url: "/kontakt",
+          target: false,
+        },
+        {
+          icon: "fas fa-phone",
+          name: "785 534 638",
+          url: "tel:785534638",
+          target: false,
+        },
+      ],
+    };
+  },
+};
 </script>
 <style lang="scss">
+$darkCyan: #186a6b;
+$lightCyan: #249fa1;
 
-    $darkCyan: #186a6b;
-    $lightCyan: #249fa1;
+#footer {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
 
-    #footer {
+  width: 100%;
+  height: 300px;
+  padding: 10px 5px;
+
+  background-color: $darkCyan;
+
+  .footer-wrapper {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+
+    .single-link {
+      a {
         display: flex;
         flex-flow: column;
-        align-items: center;
         justify-content: center;
+        align-items: center;
 
-        width: 100%;
-        height: 300px;
-        padding: 10px 5px;
+        text-decoration: none;
+        color: darken($darkCyan, 10%);
 
-        background-color: $darkCyan;
+        margin: 0 15px;
 
-        .footer-wrapper {
-            display: flex;
-            flex-flow: row;
-            justify-content: space-around;
-            align-items: center;
+        transition: all 0.3s ease-in-out;
 
-            width: 100%;
-
-            .single-link {
-
-                a {
-                    display: flex;
-                    flex-flow: column;
-                    justify-content: center;
-                    align-items: center;
-
-                    text-decoration: none;
-                    color: darken($darkCyan, 10%);
-                    
-                    margin: 0 15px;
-                    
-                    transition: all .3s ease-in-out;
-
-                    i {
-                        font-size: 2em;
-                    }
-                    .name {
-                        margin: 5px 0;
-                        font-size: .8em;
-                    }
-
-                    &:hover {
-                        color: lighten($lightCyan, 10%);
-                        cursor: pointer;
-
-                        transform: scale(1.2);
-                    }
-                }
-            }
+        i {
+          font-size: 2em;
+        }
+        .name {
+          margin: 5px 0;
+          font-size: 0.8em;
         }
 
-        .author {
-            font-size: .8em;
-            color: darken($darkCyan, 10%);
-            
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        &:hover {
+          color: lighten($lightCyan, 10%);
+          cursor: pointer;
 
-            margin-top: 20px;
-
-            a {
-                font-size: 1.1em;
-                color: $lightCyan;
-                text-decoration: none;
-                margin: 0 5px;
-            }
+          transform: scale(1.2);
         }
+      }
+    }
+  }
+
+  .author {
+    font-size: 0.8em;
+    color: darken($darkCyan, 10%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 20px;
+
+    a {
+      font-size: 1.1em;
+      color: $lightCyan;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #footer {
+    .footer-wrapper {
+      .single-link {
+        font-size: 1.5em;
+      }
     }
 
-    @media (min-width: 768px) {
-        #footer {
-
-            .footer-wrapper {
-                .single-link {
-                    font-size: 1.5em;
-                }
-            }
-
-            .author {
-                font-size: 1em;
-                margin-top: 50px;
-            }
-        }
+    .author {
+      font-size: 1em;
+      margin-top: 50px;
     }
-
+  }
+}
 </style>

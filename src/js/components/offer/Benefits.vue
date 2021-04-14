@@ -18,115 +18,105 @@
         <Animation />
 </template>
 <script>
-import benefits from '../../mixins/benefits';
-import Animation from '../Animation.vue';
+import benefits from "../../mixins/benefits";
+import Animation from "../Animation.vue";
 
 export default {
-    name: 'Benefits',
-    data() {
-        return {
-            benefits
-        }
-    },
-    components: {
-        Animation
-    }
-}
+  name: "Benefits",
+  data() {
+    return {
+      benefits,
+    };
+  },
+  components: {
+    Animation,
+  },
+};
 </script>
 <style lang="scss">
+#benefits {
+  width: 100%;
+  height: auto;
 
-    $darkCyan: #186a6b;
-    $lightCyan: #249fa1;
+  .benefits-title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
 
-    #benefits {
+    margin: 50px 0;
+
+    .color-changer {
+      margin: 0 5px;
+      font-size: 1.2em;
+    }
+  }
+
+  .benefits-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
+    width: 100%;
+
+    .single_benefit {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+
+      .benefit_icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
-        height: auto;
 
-        .benefits-title {
-            width: 100%;
-            text-align: center;
-            font-size: 1.5em;
+        i {
+          font-size: 3em;
+          color: $color-primary;
+        }
+      }
 
-            margin: 50px 0;
+      .benefit_content {
+        width: 100%;
+        margin: 20px 0;
+        .title {
+          width: 100%;
+          text-align: center;
+          font-size: 1.2em;
+          margin-bottom: 10px;
 
-            .color-changer {
-                margin: 0 5px;
-                font-size: 1.2em;
-            }
+          .color-changer {
+            font-size: 1.2em;
+            margin: 0 5px;
+          }
         }
 
-        .benefits-wrapper {
-
-            display: grid;
-            grid-template-columns: 1fr;
-            align-items: center;
-            justify-content: center;
-            justify-items: center;
-            
-            width: 100%;
-
-            .single_benefit {
-                display: flex;
-                flex-flow: column;
-                align-items: center;
-                justify-content: center;
-
-                width: 100%;
-
-                .benefit_icon {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    width: 100%;
-                    
-                    i {
-                        font-size: 3em;
-                        color: $lightCyan; 
-                    }
-                }
-
-                .benefit_content {
-                    width: 100%;
-                    margin: 20px 0;
-                    .title {
-                        width: 100%;
-                        text-align: center;
-                        font-size: 1.2em;
-                        margin-bottom: 10px;
-
-                        .color-changer {
-                            font-size: 1.2em;
-                            margin: 0 5px;
-                        }
-                    }
-
-                    .content {
-                        text-align: center;
-                    }
-                }
-            }
+        .content {
+          text-align: center;
         }
+      }
     }
+  }
+}
 
-    @media (min-width: 768px) {
+@media (min-width: 768px) {
+  #benefits {
+    .benefits-wrapper {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px 0;
 
-        #benefits {
+      .single_benefit {
+        flex-flow: column;
+        justify-content: flex-start;
 
-            .benefits-wrapper {
-                grid-template-columns: 1fr 1fr;
-                grid-gap: 30px 0;
-
-                .single_benefit {
-                    flex-flow: column;
-                    justify-content: flex-start;
-
-                    width: 80%;
-                    height: 100%;
-                }
-            }
-
-        }
-
+        width: 80%;
+        height: 100%;
+      }
     }
-
+  }
+}
 </style>

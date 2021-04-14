@@ -8,44 +8,39 @@
 </template>
 <script>
 export default {
-    name: 'Contact-mini'
-}
+  name: "Contact-mini",
+};
 </script>
 <style lang="scss">
+#contact-mini {
+  width: 100%;
+  height: auto;
 
-    $darkCyan: #186a6b;
-    $lightCyan: #249fa1;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
 
-    #contact-mini {
-        width: 100%;
-        height: auto;
-        
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: center;
+  margin: 50px 0;
 
-        margin: 50px 0;
+  .contact-content {
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: 700;
 
-        .contact-content {
-            font-size: 1.2em;
-            font-style: italic;
-            font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+  }
 
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        a {
-            button {
-                border: 1px solid $lightCyan;
-                &:hover {
-                    border-radius: 5px;
-                    border: 1px solid $lightCyan;
-                    background-color: $lightCyan;
-                }
-            }
-        }
+  a {
+    button {
+      border: 1px solid $color-primary;
+      &:hover {
+        border-radius: 5px;
+        border: 1px solid $color-primary;
+        background-color: $color-primary;
+      }
     }
-
+  }
+}
 </style>

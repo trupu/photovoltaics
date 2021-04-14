@@ -14,100 +14,100 @@
         <Animation />
 </template>
 <script>
-import Animation from '../Animation.vue';
+import Animation from "../Animation.vue";
 
 export default {
-    name: 'contactData',
-    components: {
-        Animation
-    },
-    data() {
-        return {
-            contactData: [
-                {
-                    name: 'Facebook',
-                    icon: 'fab fa-facebook-f',
-                    link: 'https://facebook.com/grzegorz.chabior.9'
-                },
-                {
-                    name: 'adres@email.com',
-                    icon: 'far fa-envelope',
-                    link: '#'
-                },
-                {
-                    name: '785 534 638',
-                    icon: 'fas fa-phone',
-                    link: '#'
-                },
-                {
-                    name: 'Wrocławska 112,\n 65-218 Zielona Góra',
-                    icon: 'fas fa-map-marker-alt',
-                    link: '#'
-                }
-            ]
-        }
-    }
-}
+  name: "contactData",
+  components: {
+    Animation,
+  },
+  data() {
+    return {
+      contactData: [
+        {
+          name: "Facebook",
+          icon: "fab fa-facebook-f",
+          link: "https://facebook.com/grzegorz.chabior.9",
+        },
+        {
+          name: "ekoenergiazg@gmail.com",
+          icon: "far fa-envelope",
+          link: "#",
+        },
+        {
+          name: "785 534 638 - Grzegorz",
+          icon: "fas fa-phone",
+          link: "#",
+        },
+        {
+          name: "501 040 738 - Krzysztof",
+          icon: "fas fa-phone",
+          link: "#",
+        },
+        {
+          name: "Kouchowska 15A 415-416, 65-001 Zielona Góra",
+          icon: "fas fa-map-marker-alt",
+          link: "#",
+        },
+      ],
+    };
+  },
+};
 </script>
 <style lang="scss">
-    
-    $darkCyan: #186a6b;
-    $lightCyan: #249fa1;
+.contact-data {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-flow: column;
 
-    .contact-data {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        flex-flow: column;
+  text-align: left;
 
-        text-align: left;
+  width: 100%;
+  margin: 50px 0;
 
-        width: 100%;
-        margin: 50px 0;
+  .contact-data_header {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 20px;
 
-        .contact-data_header {
-            font-size: 1.5em;
-            font-weight: 400;
-            margin: 0;
-            margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
 
-            width: 100%;
-            text-align: left;
-        }
+  .contact-data_content {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
 
-        .contact-data_content {
-            display: flex;
-            flex-flow: column;
-            align-items: center;
-            justify-content: center;
+    width: 100%;
 
-            width: 100%;
+    .content__data {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      margin-bottom: 10px;
 
-            .content__data {
-                display: flex;
-                flex-flow: row;
-                align-items: center;
-                justify-content: flex-start;
-                width: 100%;
-                margin-bottom: 10px;
+      text-decoration: none;
+      color: #000;
 
-                text-decoration: none;
-                color: #000;
-
-                i {
-                    width: 30px;
-                    font-size: 1.2em;
-                    color: $darkCyan;
-                    margin-right: 10px;
-                }
-            }
-        }
+      i {
+        width: 30px;
+        font-size: 1.2em;
+        color: $color-secondary;
+        margin-right: 10px;
+      }
     }
-
-@media (min-width: 768px) {
-    .contact-data {
-        margin: 0;
-    }
+  }
 }
 
+@media (min-width: 768px) {
+  .contact-data {
+    margin: 0;
+  }
+}
 </style>

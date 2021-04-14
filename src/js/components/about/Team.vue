@@ -15,125 +15,121 @@
         <Animation />
 </template>
 <script>
-import Animation from '../Animation.vue';
+import Animation from "../Animation.vue";
 
 export default {
-    name: 'Team',
-    components: {
-        Animation
-    },
-    data() {
-        return {
-            teamArray: [
-                {
-                    name: 'Grzegorz Chabior',
-                    position: 'Właściciel',
-                    desc: 'Specjalista, monter, doradca, założyciel firmy. Nadzoruje instalacje PV od początku do końca i czuwa, aby realizacja przebiegła bezproblemowo. Jego kilkunastoletnie doświadczenie w branży przejawia się podczas kontaktu z klientem. Potrafi dobrać idealne rozwiązanie, niezależnie od warunków',
-                    reverse: '',
-                    img: './img/about/pracownik1.jpg'
-                }
-            ]
-        }
-    }
-}
+  name: "Team",
+  components: {
+    Animation,
+  },
+  data() {
+    return {
+      teamArray: [
+        {
+          name: "Grzegorz Chabior",
+          position: "Właściciel",
+          desc:
+            "Specjalista, monter, doradca, założyciel firmy. Nadzoruje instalacje PV od początku do końca i czuwa, aby realizacja przebiegła bezproblemowo. Jego kilkunastoletnie doświadczenie w branży przejawia się podczas kontaktu z klientem. Potrafi dobrać idealne rozwiązanie, niezależnie od warunków",
+          reverse: "",
+          img: "./img/about/pracownik1.jpg",
+        },
+      ],
+    };
+  },
+};
 </script>
 <style lang="scss">
-    
-    $darkCyan: #186a6b;
-    $lightCyan: #249fa1;
+.team-container {
+  margin: 100px 0 50px 0;
+  width: 100%;
+  padding: 0 10px;
 
-    .team-container {
-        margin: 100px 0 50px 0;
-        width: 100%;
-        padding: 0 10px;
+  .team-title {
+    font-size: 2em;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
 
-        .team-title {
-            font-size: 2em;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+  .team-wrapper {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 30px 0;
 
-        .team-wrapper {
-            display: flex;
-            flex-flow: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            margin: 30px 0;
+    .team-content {
+      display: flex;
+      flex-flow: column;
+      text-align: left;
 
-            .team-content {
-                display: flex;
-                flex-flow: column;
-                text-align: left;
+      .name {
+        font-size: 1.2em;
+      }
 
-                .name {
-                    font-size: 1.2em;
-                }
+      .position {
+        color: $color-primary;
+        font-size: 0.9em;
+      }
 
-                .position {
-                    color: $lightCyan;
-                    font-size: .9em;
-                }
-
-                .desc {
-                    margin: 10px 0;
-                    text-align: center;
-                }
-            }
-
-            .team-image {
-                width: 100%;
-
-                img {
-                    object-fit: cover;
-                    width: 100%;
-                    height: 200px;
-                }
-            }
-        }
+      .desc {
+        margin: 10px 0;
+        text-align: center;
+      }
     }
+
+    .team-image {
+      width: 100%;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 200px;
+      }
+    }
+  }
+}
 
 @media (min-width: 768px) {
-    .team-container {
-        width: 80%;
-        .team-wrapper {
-            flex-flow: row;
+  .team-container {
+    width: 80%;
+    .team-wrapper {
+      flex-flow: row;
 
-            .team-content {
-                text-align: left;
+      .team-content {
+        text-align: left;
 
-                .desc {
-                    text-align: left;
-                }
-            }
-
-            .team-image {
-                margin: 0 20px;
-                width: 100%;
-                img {
-                    width: 100%;
-                    height: 200px;
-                }
-            }
+        .desc {
+          text-align: left;
         }
+      }
 
-        .team-reverse {
-            flex-flow: row-reverse;
+      .team-image {
+        margin: 0 20px;
+        width: 100%;
+        img {
+          width: 100%;
+          height: 200px;
         }
+      }
     }
+
+    .team-reverse {
+      flex-flow: row-reverse;
+    }
+  }
 }
 
 @media (min-width: 1024px) {
-    .team-container {
-        .team-wrapper {
-            .team-image {
-                img {
-                    height: 400px;
-                }
-            }
+  .team-container {
+    .team-wrapper {
+      .team-image {
+        img {
+          height: 400px;
         }
+      }
     }
+  }
 }
-
 </style>
