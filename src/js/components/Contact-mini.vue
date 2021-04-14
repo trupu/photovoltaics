@@ -34,11 +34,11 @@ export default {
 
   a {
     button {
-      border: 1px solid $color-primary;
+      border: 1px solid $color-secondary-light;
       &:hover {
         border-radius: 5px;
-        border: 1px solid $color-primary;
-        background-color: $color-primary;
+        border: 1px solid $color-secondary-light;
+        background-color: $color-secondary-light;
       }
     }
   }

@@ -69,7 +69,7 @@ export default {
       }
 
       .position {
-        color: $color-primary;
+        color: $color-secondary-light;
         font-size: 0.9em;
       }
 

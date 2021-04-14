@@ -1,5 +1,5 @@
 <template lang="pug">
-    nav#navbar
+    nav#navbar(:class="[navbarClass]")
         div.switcher(class='menu-changer' @click='toggleMenu()')
             span(v-if='!menuShowed') 
                 | menu
@@ -31,9 +31,13 @@ export default {
       menuShowed: false,
       menuTimeout: "",
       navTimeout: "",
+      navbarClass: "",
     };
   },
   methods: {
+    getNavbarClass() {
+      this.navbarClass = window.scrollY > 50 ? "fixed-background" : "";
+    },
     toggleMenu() {
       if (window.innerWidth > 768) return;
 
@@ -76,21 +80,12 @@ export default {
         }
       }, 10);
     },
-    // switching nav`s background onscroll
-    controlScrollBehaviour() {
-      const nav = document.querySelector("#navbar");
-      if (window.scrollY > 50) {
-        nav.style.backgroundColor = "rgba(24,106,107,.6)";
-      } else {
-        nav.style.background = "none";
-      }
-    },
   },
   mounted() {
     window.addEventListener("scroll", () => {
       clearTimeout(this.navTimeout);
       this.navTimeout = setTimeout(() => {
-        this.controlScrollBehaviour();
+        this.getNavbarClass();
       }, 50);
     });
   },
@@ -163,6 +158,10 @@ export default {
   min-height: 60px;
   transition: background 0.3s ease-in-out;
 
+  &.fixed-background {
+    background-color: $color-fixed-navbar;
+  }
+
   .switcher {
     display: flex;
     flex-flow: row;
@@ -174,11 +173,11 @@ export default {
     position: absolute;
     top: 10px;
     right: 5%;
-    color: $color-primary;
+    color: $color-secondary-light;
     z-index: 150;
 
     &:hover {
-      color: $color-primary;
+      color: $color-secondary-light;
       cursor: pointer;
     }
 
@@ -249,7 +248,7 @@ export default {
           cursor: pointer;
 
           a {
-            color: $color-primary;
+            color: $color-secondary-light;
           }
         }
       }

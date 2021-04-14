@@ -157,7 +157,7 @@ export default {
 
       font-size: 1.2em;
       border: none;
-      border-bottom: 1px solid $color-primary;
+      border-bottom: 1px solid $color-secondary-light;
       color: #000;
     }
 
@@ -165,7 +165,7 @@ export default {
       width: 100%;
 
       font-size: 1.2em;
-      border: 1px solid $color-primary;
+      border: 1px solid $color-secondary-light;
       color: #000;
     }
   }
@@ -181,8 +181,8 @@ export default {
       margin: 20px 0;
 
       &:hover {
-        background-color: $color-primary;
-        border: 1px solid $color-primary;
+        background-color: $color-secondary-light;
+        border: 1px solid $color-secondary-light;
       }
     }
 

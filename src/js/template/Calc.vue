@@ -108,20 +108,6 @@ export default {
     };
   },
   methods: {
-    componentsColorsChanger(titleColor, subtitleColor, linksColor) {
-      const title = document.querySelector(".title-regular");
-      const titleWrapper = document
-        .querySelector(".title-wrapper")
-        .querySelector("p");
-      const regular = document.querySelectorAll(".regular");
-      const pathWrapper = document
-        .querySelector(".path-wrapper")
-        .querySelector("a");
-      pathWrapper.style.color = linksColor;
-      regular.forEach((el) => (el.style.color = subtitleColor));
-      titleWrapper.style.color = subtitleColor;
-      title.style.color = titleColor;
-    },
     // Input Validation
     validateValue(value) {
       return isNaN(value) ? false : true;
@@ -170,15 +156,15 @@ export default {
       this.header.path,
     ]);
     this.calcTimeout = setTimeout(() => {
-      this.componentsColorsChanger("#fff", "#249fa1", "#fff");
       this.calculateValues(this.calculator.cost);
+      document.querySelector("#title").classList.add("on-calculator-page");
     }, 100);
     window.scrollTo(0, 0);
   },
   destroyed() {
+    document.querySelector("#title").classList.remove("on-calculator-page");
     clearTimeout(this.calcTimeout);
     this.$store.state.header.renderPath = false;
-    this.componentsColorsChanger("#000", "#555", "#000");
   },
 };
 </script>
@@ -187,7 +173,7 @@ export default {
   width: 100%;
   height: auto;
 
-  background-color: #005b6b;
+  background-color: $color-primary-dark;
   color: #fff;
   padding: 250px 5px 100px 5px;
   position: absolute;
@@ -195,7 +181,7 @@ export default {
   left: 0;
 
   .color-changer {
-    color: $color-primary;
+    color: $color-secondary-light;
     margin: 0 5px;
   }
 
@@ -241,10 +227,10 @@ export default {
       margin: 20px 0;
       background: none;
       border: none;
-      border-bottom: 2px solid $color-primary;
+      border-bottom: 2px solid $color-secondary-light;
       width: 150px;
       font-size: 1.8em;
-      color: $color-primary;
+      color: $color-secondary-light;
       text-align: center;
       font-weight: 700;
     }
@@ -291,7 +277,7 @@ export default {
         text-transform: uppercase;
 
         b {
-          color: $color-primary;
+          color: $color-secondary-light;
           font-weight: 700;
         }
       }
@@ -303,11 +289,11 @@ export default {
 
     a {
       button {
-        border: 1px solid $color-primary;
-        background-color: #005b6b;
+        border: 1px solid $color-secondary-light;
+        background-color: $color-secondary;
 
         &:hover {
-          background-color: $color-primary;
+          background-color: $color-secondary-light;
           border-radius: 10px;
         }
       }

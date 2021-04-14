@@ -154,7 +154,7 @@ export default {
 
       span {
         font-size: 1.1em;
-        color: $color-primary;
+        color: $color-secondary-light;
         margin: 0 5px;
       }
     }

@@ -76,7 +76,7 @@ export default {
 
         i {
           font-size: 3em;
-          color: $color-primary;
+          color: $color-secondary;
         }
       }
 

@@ -76,7 +76,7 @@ export default {
         align-items: center;
 
         text-decoration: none;
-        color: darken($color-secondary, 10%);
+        color: $color-secondary-dark;
 
         margin: 0 15px;
 
@@ -91,7 +91,7 @@ export default {
         }
 
         &:hover {
-          color: lighten($color-primary, 10%);
+          color: $color-secondary-light;
           cursor: pointer;
 
           transform: scale(1.2);
@@ -102,7 +102,7 @@ export default {
 
   .author {
     font-size: 0.8em;
-    color: darken($color-secondary, 10%);
+    color: $color-secondary-dark;
 
     display: flex;
     align-items: center;
@@ -112,9 +112,14 @@ export default {
 
     a {
       font-size: 1.1em;
-      color: $color-primary;
+      font-weight: bold;
       text-decoration: none;
+      color: $color-secondary-dark;
       margin: 0 5px;
+
+      &:hover {
+        color: $color-secondary-light;
+      }
     }
   }
 }

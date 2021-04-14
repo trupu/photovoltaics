@@ -160,7 +160,7 @@ export default {
         width: 100%;
         text-align: center;
         font-size: 1.2em;
-        color: $color-primary;
+        color: $color-secondary-light;
         padding: 5px;
         margin: 10px 0;
       }
@@ -222,7 +222,7 @@ export default {
             width: 30px;
             height: 30px;
 
-            background-color: $color-primary;
+            background-color: $color-secondary-light;
             margin: 0 8px;
           }
 
@@ -254,8 +254,8 @@ export default {
       border: 1px solid $color-secondary;
 
       &:hover {
-        border-color: $color-primary;
-        background-color: $color-primary;
+        border-color: $color-secondary-light;
+        background-color: $color-secondary-light;
         border-radius: 5px;
       }
     }

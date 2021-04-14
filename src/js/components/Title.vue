@@ -20,82 +20,96 @@
 </template>
 <script>
 export default {
-    name: 'Title'
-}
+  name: "Title",
+};
 </script>
 <style lang="scss">
-    #title {
-        width: 100%;
-        height: auto;
+#title {
+  width: 100%;
+  height: auto;
 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-        z-index: 50;
+  z-index: 50;
 
-        margin-top: 60px;
-        padding: 0 10px;
+  margin-top: 60px;
+  padding: 0 10px;
 
-        .title-wrapper {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            flex-flow: column;
-
-            .title {
-                font-size: 1.2em;
-                text-transform: uppercase;
-
-                .color-changer {
-                    margin: 0 5px;
-                    font-size: 1.2em;
-                }
-            }
-
-            .description {
-                font-size: .8em;
-                margin: 5px 0;
-                text-align: left;
-                color: #555;
-            }
-        }
-
-        .path-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-flow: column;
-            text-align: center;
-
-            .regular {
-                font-size: .8em;
-                margin: 0;
-            }
-
-            .link {
-                font-size: 1em;
-                color: #555;
-
-                a {
-                    font-size: .8em;
-                    text-decoration: none;
-                    font-weight: 700;
-                    color: #000;
-                    margin: 0 5px;
-                }
-            }
-        }
+  &.on-calculator-page {
+    .description {
+      color: $color-secondary-light !important;
     }
 
-    @media (min-width: 768px) {
-        #title {
-            width: 80%;
-            padding: 0;
+    .link {
+      color: $color-secondary-light !important;
 
-            .path-wrapper {
-                flex-flow: row;
-            }
-        }
+      a {
+        color: #000 !important;
+      }
     }
+  }
+
+  .title-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-flow: column;
+
+    .title {
+      font-size: 1.2em;
+      text-transform: uppercase;
+
+      .color-changer {
+        margin: 0 5px;
+        font-size: 1.2em;
+      }
+    }
+
+    .description {
+      font-size: 0.8em;
+      margin: 5px 0;
+      text-align: left;
+      color: #555;
+    }
+  }
+
+  .path-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+
+    .regular {
+      font-size: 0.8em;
+      margin: 0;
+    }
+
+    .link {
+      font-size: 1em;
+      color: #555;
+
+      a {
+        font-size: 0.8em;
+        text-decoration: none;
+        font-weight: 700;
+        color: #000;
+        margin: 0 5px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #title {
+    width: 80%;
+    padding: 0;
+
+    .path-wrapper {
+      flex-flow: row;
+    }
+  }
+}
 </style>

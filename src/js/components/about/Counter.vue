@@ -116,7 +116,7 @@ export default {
 
       i {
         font-size: 4em;
-        color: $color-primary;
+        color: $color-secondary-light;
       }
 
       .amount {
