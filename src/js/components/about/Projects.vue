@@ -1,5 +1,18 @@
 <template lang="pug">
-    silent-box(:gallery="images")
+    div
+        div#projects-container
+            div.photo-box(v-for="(photo, index) in images" :key="index" @click="openOverlayProgramaticallyWithContext(photo, index)")
+                img(:src="photo.src" loading="lazy")
+                div.info-box
+                    p
+                        | Lokalizacja: 
+                        b
+                            | {{ photo.location }}
+                    p
+                        | Moc: 
+                        b
+                            | {{ photo.power }}
+        silent-box(:gallery="images" ref="silentbox")
         
 </template>
 <script>
@@ -17,9 +30,17 @@ export default {
     loadProjectsImages() {
       this.images = this.projects.map((project) => ({
         src: project.img,
-        description: project.name,
-        thumbnailWidth: `${window.innerWidth / 4}px`,
+        description: `Lokalizacja: ${project.location}, Moc: ${project.power}`,
+        location: project.location,
+        power: project.power,
+        // thumbnailWidth: `${window.innerWidth / 4}px`,
+        thumbnailWidth: 0,
       }));
+    },
+    // the index parameter is optional, however it should be set if you're opening
+    // the overlay on different position than the beginning of the gallery
+    openOverlayProgramaticallyWithContext(item, index = 0) {
+      this.$refs.silentbox.openOverlay(item, index);
     },
   },
   created() {
@@ -28,7 +49,7 @@ export default {
 };
 </script>
 <style lang="scss">
-#silentbox-gallery {
+#projects-container {
   display: grid;
 
   grid-gap: 8px;
@@ -43,7 +64,7 @@ export default {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  & > .silentbox-item {
+  & > .photo-box {
     width: 100%;
 
     -webkit-box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
@@ -51,6 +72,19 @@ export default {
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.75);
 
     height: calc(100vw / 4);
+
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+      cursor: pointer;
+
+      .info-box {
+        opacity: 0.7;
+        transform: translateY(0);
+        max-width: 80%;
+      }
+    }
 
     @media (max-width: 768px) {
       height: calc(100vw / 2);
@@ -64,6 +98,28 @@ export default {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .info-box {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      width: 100%;
+      max-width: 0;
+
+      display: flex;
+      flex-flow: column;
+
+      padding: 8px;
+
+      background-color: #fff;
+      color: #000;
+
+      opacity: 0;
+      transform: translateY(100%);
+
+      transition: all 0.3s ease-in-out;
     }
   }
 }

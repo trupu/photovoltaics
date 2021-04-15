@@ -1,8 +1,8 @@
 export default [
   {
     name: "",
-    location: "",
-    power: "",
+    location: "Test location",
+    power: "10kW",
     img: "img/about_projects/p1.jpg",
   },
   {
