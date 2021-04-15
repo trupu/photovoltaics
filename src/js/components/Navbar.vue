@@ -6,6 +6,7 @@
             i(class='fas fa-bars' v-if='!menuShowed')
             i(class='fas fa-times' v-if='menuShowed')
         div.navbar-wrapper
+            img.logo(src="../../img/logo.png")
             ul
                 li.link(@click='toggleMenu()')
                     router-link(to="/") 
@@ -204,9 +205,21 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $color-secondary;
+    background-color: $color-primary-dark;
     display: none;
     transform: translateY(-1000px);
+
+    position: relative;
+
+    .logo {
+      position: absolute;
+      left: 10%;
+      top: 0;
+
+      margin-top: -25px;
+      height: 120px;
+      width: auto;
+    }
 
     ul {
       display: flex;
