@@ -1,5 +1,5 @@
 export default {
-  FACEBOOK: "",
+  FACEBOOK: "https://www.facebook.com/Ekoenergia-101673162052264",
   EMAIL: "ekoenergiazg@gmail.com",
   PHONE: [
     {

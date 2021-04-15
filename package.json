@@ -40,6 +40,7 @@
     "style-loader": "^1.0.1",
     "url-loader": "^3.0.0",
     "vue-loader": "^15.7.2",
+    "vue-silentbox": "^2.4.4",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
     "webpack-cli": "^3.3.10",
