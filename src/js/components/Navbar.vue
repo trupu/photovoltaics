@@ -9,7 +9,7 @@
             ul
                 li.link(@click='toggleMenu()')
                     router-link(to="/") 
-                        | Start
+                        | Strona Główna
                 li.link(@click='toggleMenu()')
                     router-link(to="/oferta")
                         | Oferta
@@ -231,7 +231,7 @@ export default {
           text-decoration: none;
           color: #fff;
           text-transform: uppercase;
-          font-size: 2em;
+          font-size: 1.4em;
           text-shadow: 0 0 2px #000;
 
           display: flex;
@@ -272,6 +272,7 @@ export default {
       opacity: 1;
       animation: none;
       background: none;
+      padding: 0 10% 0 10%;
 
       ul {
         flex-flow: row;
