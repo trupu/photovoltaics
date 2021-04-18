@@ -21,7 +21,7 @@ config.output = {
 config.devServer = {
   contentBase: path.join(__dirname, "dist"),
   compress: true,
-  port: 9000,
+  port: 8500,
 };
 
 config.module = {

@@ -2,10 +2,10 @@
     section#calc
         div.calc-header.animation-onshow_left.animation-hide
             | Podaj miesięczny koszt energii:
-            input#value(type='text' v-model='calculator.cost' @input='calcService(calculator.cost)')
+            input#value(type='text' v-model='calculator.cost' @input="calculateValues(calculator.cost)")
             | PLN / miesięcznie
-            p.error-handler(v-if='calculator.errorMessage')
-                | {{ calculator.errorMessage }}
+            p.error-handler(v-if='getErrorMessage')
+                | {{ getErrorMessage }}
         div.calc-wrapper.animation-onshow_popup.animation-hide
             div.single-calc
                 p.header
@@ -26,7 +26,7 @@
                 p.result
                     | Potrzebna moc instalacji:
                     b.color-changer
-                        | {{ calculator.neededPower }}kWh
+                        | {{ calculator.neededPower }}kWp
             div.single-calc(v-for="(mod, index) in calculator.modules" :key="index")
                 p.header
                     | Wyliczenia dla modułów:
@@ -37,7 +37,7 @@
                         | Aby uzyskać zalecaną moc potrzebujesz: <br />
                         b.color-changer
                             | {{ mod.amount }}szt.
-                        | modułów (<b class='color-changer'>{{ mod.energy }}kW</b>)
+                        | modułów (<b class='color-changer'>{{ mod.producedEnergy }}kWp</b>)
                     p.result
                         | Powierzchnia modułów:
                         b.color-changer
@@ -77,11 +77,11 @@ export default {
       },
       calcTimeout: "",
       calculator: {
-        errorMessage: "",
         cost: 120,
         // Energy cost based on http://www.cena-pradu.pl/mapa.html data 2021
-        energyCost: 0.63,
-        energyPower: 0.022,
+        energyCost: 0.55,
+        // br*wa.pl/panele-kalkulator-fotowoltaiczny.html - wielkość instalacji / miesięczny koszt
+        energyPower: 0.0216,
         neededSurface: 1.7,
         yearlyExpense: "",
         monthlyEnergy: "",
@@ -93,12 +93,14 @@ export default {
             power: 370,
             amount: "",
             energy: 0.37,
+            producedEnergy: "",
             surface: "",
           },
           {
             power: 430,
             amount: "",
             energy: 0.43,
+            producedEnergy: "",
             surface: "",
           },
         ],
@@ -106,6 +108,13 @@ export default {
         installationCost: "",
       },
     };
+  },
+  computed: {
+    getErrorMessage() {
+      return this.calculator.cost > 400
+        ? "Dla tak wysokich kosztów zalecamy wycenę indywidualną."
+        : "";
+    },
   },
   methods: {
     // Input Validation
@@ -118,10 +127,11 @@ export default {
       c.yearlyExpense = value * 12;
       c.monthlyEnergy = (value / c.energyCost).toFixed(0);
       c.yearlyEnergy = (c.monthlyEnergy * 12).toFixed(0);
-      c.neededPower = (c.energyPower * value).toFixed(0);
+      c.neededPower = (c.energyPower * value).toFixed(2);
 
       c.modules.forEach((mod) => {
         mod.amount = Math.ceil(c.neededPower / mod.energy);
+        mod.producedEnergy = (mod.amount * mod.energy).toFixed(2);
         mod.surface = (c.neededSurface * mod.amount).toFixed(2);
       });
 
@@ -129,23 +139,6 @@ export default {
 
       getCost(c.neededPower);
       c.installationCost = getCost(c.neededPower);
-    },
-    calcService(cost) {
-      const input = document.querySelector("#value");
-      if (!this.validateValue(cost)) {
-        this.calculator.errorMessage =
-          "Podaj prawidłowy koszt energii (liczba)";
-        input.style.color = "#E84C15";
-        return;
-      }
-      this.calculator.errorMessage = "";
-      input.style.color = "#249fa1";
-      if (cost > 390) {
-        this.calculator.errorMessage =
-          "Dla tak wysokich rachunków zalecamy wycenę indywidualną";
-        input.style.color = "#E8BE3F";
-      }
-      this.calculateValues(cost);
     },
   },
   mounted() {
@@ -221,6 +214,7 @@ export default {
       text-align: center;
       position: absolute;
       bottom: -20px;
+      left: 0;
     }
 
     input {
