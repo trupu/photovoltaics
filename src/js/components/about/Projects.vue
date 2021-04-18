@@ -81,7 +81,7 @@ export default {
 
       .info-box {
         opacity: 0.7;
-        transform: translateY(0);
+        transform: translateX(0);
         max-width: 80%;
       }
     }
@@ -105,11 +105,14 @@ export default {
       bottom: 0;
       right: 0;
 
-      width: 100%;
-      max-width: 0;
-
       display: flex;
       flex-flow: column;
+      align-items: flex-start;
+      justify-content: center;
+
+      width: 100%;
+      max-width: 0;
+      height: 60px;
 
       padding: 8px;
 
@@ -117,7 +120,7 @@ export default {
       color: #000;
 
       opacity: 0;
-      transform: translateY(100%);
+      transform: translateX(100%);
 
       transition: all 0.3s ease-in-out;
     }
