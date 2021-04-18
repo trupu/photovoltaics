@@ -79,7 +79,7 @@ export default {
       calculator: {
         cost: 120,
         // Energy cost based on http://www.cena-pradu.pl/mapa.html data 2021
-        energyCost: 0.55,
+        energyCost: 0.59,
         // br*wa.pl/panele-kalkulator-fotowoltaiczny.html - wielkość instalacji / miesięczny koszt
         energyPower: 0.0216,
         neededSurface: 1.7,
