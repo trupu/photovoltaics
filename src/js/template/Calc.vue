@@ -43,7 +43,7 @@
                         b.color-changer
                             | {{ mod.surface }}m<sup>2</sup>
         div.calc-installation.animation-onshow_popup
-            | Koszt instalacji nie przekroczy: {{ calculator.installationCost }}zł
+            | {{ getTotalCostLabel }}: {{ calculator.installationCost }}zł
             p.warning
                 | Jest to jedynie szacowany koszt instalacji. Cena może się zmienić, zależnie od rodzaju zadaszenia oraz rodzaju dachówki.
         div.calc-header.animation-onshow_left
@@ -111,9 +111,18 @@ export default {
   },
   computed: {
     getErrorMessage() {
-      return this.calculator.cost > 400
+      if (isNaN(this.calculator.cost) || this.calculator.cost < 0) {
+        return "Wprowadź poprawny koszt.";
+      }
+
+      return this.calculator.cost >= 2315
         ? "Dla tak wysokich kosztów zalecamy wycenę indywidualną."
         : "";
+    },
+    getTotalCostLabel() {
+      return this.calculator.cost >= 2315
+        ? "Koszt instalacji przekroczy"
+        : "Koszt instalacji nie przekroczy";
     },
   },
   methods: {

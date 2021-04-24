@@ -5,10 +5,9 @@ export const getCost = (power) => {
     .map((el) => Number(el))
     .sort((a, b) => a > b);
 
-  return powers.reduce((acc, current) => {
-    if (power > current) {
-      return COSTS[current];
-    }
-    return acc;
-  }, COSTS[powers[0]]);
+  const firstSmallerFoundPower = powers.find((el) => power <= el);
+
+  return firstSmallerFoundPower
+    ? COSTS[firstSmallerFoundPower]
+    : COSTS[powers[powers.length - 1]];
 };
